@@ -1,0 +1,11 @@
+.themeToggle {
+  border: 1px solid var(--text);
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+}

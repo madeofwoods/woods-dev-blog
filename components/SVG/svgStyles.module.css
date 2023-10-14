@@ -1,0 +1,24 @@
+.treeTop {
+  /* fill: rgb(65, 10, 69) !important; */
+  stroke: var(--text) !important;
+  fill: none !important;
+  stroke-width: 2px !important;
+}
+
+.treeBottom {
+  stroke: var(--text) !important;
+  fill: none !important;
+  stroke-width: 2px !important;
+}
+
+.tree {
+  transform: scale(0.2);
+}
+
+.tree:hover .treeBottom {
+  stroke: rgb(0, 47, 255) !important;
+}
+
+.tree:hover .treeTop {
+  stroke: rgb(0, 115, 255) !important;
+}
