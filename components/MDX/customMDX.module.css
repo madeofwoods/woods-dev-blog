@@ -1,0 +1,70 @@
+.h1 {
+  margin: 90px 0px 30px 0px;
+  color: #b27dd9;
+  font-size: 32px;
+}
+
+.para {
+  font-size: 17px;
+  line-height: 36px;
+  margin-bottom: 20px;
+  color: var(--softText);
+}
+
+.strong {
+  color: rgb(184, 184, 237);
+}
+
+.tag {
+  color: #7d96d9;
+  border: 1px solid gray;
+  padding: 3px 4px;
+  border-radius: 5px;
+  white-space: nowrap;
+  background-color: rgb(35, 35, 35);
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.li span {
+  display: flex;
+  color: var(--softText);
+}
+
+/* .li {
+  list-style-image: url(/rightArrow.png);
+} */
+/* .ordered {
+  list-style: none;
+  color: red;
+} */
+
+.oLi {
+  counter-increment: muffins;
+}
+.oLi::before {
+  content: counter(muffins) ". ";
+  margin-right: 30px;
+  color: hotpink;
+  font-weight: bold;
+  text-align: end;
+  /* font-family: cursive; */
+}
+
+.ordered {
+  list-style: none;
+  counter-reset: muffins;
+}

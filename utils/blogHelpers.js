@@ -1,0 +1,33 @@
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
+
+export const getAllBlogs = () => {
+  const files = fs.readdirSync("posts");
+
+  const posts = files.map((filename) => {
+    const mdxWithMeta = fs.readFileSync(path.join("posts", filename));
+    console.log(matter(mdxWithMeta));
+    const { data: frontMatter } = matter(mdxWithMeta);
+    console.log(frontMatter);
+    return {
+      frontMatter,
+      slug: filename.split(".")[0],
+    };
+  });
+
+  return posts;
+};
+
+export const getBlog = async (slug) => {
+  console.log(slug);
+  const source = fs.readFileSync(path.join("posts", slug + ".mdx"), "utf-8");
+
+  const { data: frontMatter, content } = matter(source);
+  console.log(content);
+
+  return {
+    content,
+    frontMatter,
+  };
+};

@@ -2,6 +2,12 @@
   width: 100vw;
   padding: 30px;
   border-bottom: 0.1px solid rgba(73, 73, 73, 0.5);
+  position: sticky;
+  top: 0;
+  left: 0;
+  /* background-color: var(--bg); */
+  backdrop-filter: blur(10px);
+  z-index: 100;
 }
 
 .wrapper {
