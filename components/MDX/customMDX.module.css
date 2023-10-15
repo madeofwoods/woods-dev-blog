@@ -17,8 +17,8 @@
 
 .tag {
   color: #7d96d9;
-  border: 1px solid gray;
-  padding: 3px 4px;
+  /* border: 1px solid gray; */
+  padding: 3px 5px;
   border-radius: 5px;
   white-space: nowrap;
   background-color: rgb(35, 35, 35);
@@ -54,17 +54,48 @@
 
 .oLi {
   counter-increment: muffins;
+  margin-bottom: 6px;
+  color: var(--softText);
 }
 .oLi::before {
   content: counter(muffins) ". ";
-  margin-right: 30px;
-  color: hotpink;
-  font-weight: bold;
-  text-align: end;
-  /* font-family: cursive; */
+  margin-left: 5px;
+  color: rgb(236, 115, 176);
+  display: inline-flex;
+  font-weight: 700;
+  width: 30px !important;
 }
 
 .ordered {
   list-style: none;
   counter-reset: muffins;
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+
+.list {
+  counter-reset: list-number;
+  margin-bottom: 20px;
+  margin-left: 60px;
+}
+
+.listItem {
+  counter-increment: list-number;
+  color: var(--softText);
+  font-size: 16px;
+}
+
+.listItem::before {
+  content: counter(list-number);
+  margin-right: 15px;
+  margin-bottom: 10px;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5645c3;
+  border-radius: 50%;
+  font-size: 12px;
+  color: white;
 }

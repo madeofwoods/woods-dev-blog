@@ -40,6 +40,14 @@ const OrderedItem = ({ children }) => {
   return <li className={styles.oLi}>{children}</li>;
 };
 
+const List = ({ children }) => {
+  return <div className={styles.list}>{children}</div>;
+};
+
+const ListItem = ({ children }) => {
+  return <div className={styles.listItem}>{children}</div>;
+};
+
 export const components = {
   h1: H1,
   p: Para,
@@ -49,4 +57,6 @@ export const components = {
   li: Item,
   OL: OL,
   Item: OrderedItem,
+  List: List,
+  ListItem: ListItem,
 };
