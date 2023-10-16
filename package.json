@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "intersection-observer": "^0.12.2",
     "next": "13.5.4",
     "next-mdx-remote": "^4.4.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-intersection-observer": "^9.5.2",
     "rehype-code-titles": "^1.2.0",
     "rehype-prism-plus": "^1.6.3"
   },

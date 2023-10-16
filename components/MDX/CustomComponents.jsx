@@ -1,8 +1,19 @@
 import Image from "next/image";
 import styles from "./customMDX.module.css";
+import { Source_Code_Pro } from "next/font/google";
+
+const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 export const H1 = ({ children }) => {
-  return <h1 className={styles.h1}>{children}</h1>;
+  console.log(String(children).toLowerCase().split(" ").join("-"));
+  return (
+    <h1
+      className={styles.h1}
+      id={typeof children == "string" && String(children).toLowerCase().split(" ").join("-")}
+    >
+      {children}
+    </h1>
+  );
 };
 
 export const Para = ({ children }) => {
@@ -14,7 +25,7 @@ export const Strong = ({ children }) => {
 };
 
 const Tag = ({ children }) => {
-  return <span className={styles.tag}>{children}</span>;
+  return <span className={`${styles.tag} ${sourceCodePro.className}`}>{children}</span>;
 };
 
 const UL = ({ children }) => {
@@ -48,6 +59,21 @@ const ListItem = ({ children }) => {
   return <div className={styles.listItem}>{children}</div>;
 };
 
+const Img = ({ alt, src, w, h }) => {
+  return (
+    <div className={styles.imageContainer}>
+      <div className={styles.blur} style={{ width: w ? w : 700, height: h ? h : 400 }}></div>
+      <Image
+        className={styles.img}
+        src={src}
+        alt={alt ? alt : " "}
+        width={w ? w : 700}
+        height={h ? h : 400}
+      />
+    </div>
+  );
+};
+
 export const components = {
   h1: H1,
   p: Para,
@@ -59,4 +85,5 @@ export const components = {
   Item: OrderedItem,
   List: List,
   ListItem: ListItem,
+  Img: Img,
 };

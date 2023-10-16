@@ -1,0 +1,79 @@
+.container {
+  position: fixed;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 10px;
+  height: max-content;
+}
+
+.powerbar {
+  width: 3px;
+  background-color: rgb(108, 108, 108);
+}
+
+.glow {
+  width: 10px;
+  height: 100%;
+  background-color: rgb(211, 149, 225, 0.3);
+  position: absolute;
+  transform: translate(-40%, -50%);
+  border-radius: 50%;
+  top: 50%;
+  /* top: calc(100% - 10px); */
+  filter: blur(2px);
+  z-index: -2;
+  /* animation: blur 1s forwards; */
+}
+
+@keyframes blur {
+  from {
+    height: 100%;
+    top: 50%;
+  }
+
+  to {
+    height: 0%;
+    top: 100%;
+  }
+}
+
+.power {
+  width: 100%;
+  height: 100%;
+  background-color: hotpink;
+  position: relative;
+  z-index: 100;
+}
+
+.headings {
+  position: relative;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 200px;
+  font-size: 12px;
+  text-transform: capitalize;
+  color: var(--softText);
+}
+
+.heading {
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.heading:hover {
+  background-color: rgb(39, 42, 66);
+  color: var(--text);
+}
+
+.active {
+  color: rgb(227, 102, 238);
+}
+
+.active:hover {
+  color: rgb(227, 102, 238);
+}

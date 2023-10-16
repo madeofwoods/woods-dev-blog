@@ -16,12 +16,15 @@
 }
 
 .tag {
-  color: #7d96d9;
-  /* border: 1px solid gray; */
-  padding: 3px 5px;
+  color: #ea8eec;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-align: center;
+  padding: 3px 7px;
   border-radius: 5px;
   white-space: nowrap;
-  background-color: rgb(35, 35, 35);
+  background-color: rgb(63, 58, 76);
   margin-left: 3px;
   margin-right: 3px;
 }
@@ -30,6 +33,7 @@
   list-style: none;
   padding-left: 0;
   margin-bottom: 20px;
+  line-height: 30px;
 }
 
 .li {
@@ -44,6 +48,10 @@
   color: var(--softText);
 }
 
+.icon {
+  margin-top: 6px;
+}
+
 /* .li {
   list-style-image: url(/rightArrow.png);
 } */
@@ -56,12 +64,16 @@
   counter-increment: muffins;
   margin-bottom: 6px;
   color: var(--softText);
+  list-style: none;
+  display: flex;
+  align-items: baseline;
 }
 .oLi::before {
   content: counter(muffins) ". ";
   margin-left: 5px;
   color: rgb(236, 115, 176);
   display: inline-flex;
+  align-items: end;
   font-weight: 700;
   width: 30px !important;
 }
@@ -76,26 +88,65 @@
 .list {
   counter-reset: list-number;
   margin-bottom: 20px;
-  margin-left: 60px;
+  margin-left: 30px;
+  margin-right: 50px;
 }
 
 .listItem {
+  display: table;
   counter-increment: list-number;
   color: var(--softText);
-  font-size: 16px;
+  /* font-size: 16px; */
+  list-style: none;
+  display: flex;
+  align-items: baseline;
 }
 
 .listItem::before {
-  content: counter(list-number);
-  margin-right: 15px;
+  content: counter(list-number) ". ";
+  padding-right: 20px;
   margin-bottom: 10px;
-  width: 20px;
-  height: 20px;
   display: inline-flex;
+  align-items: baseline;
+  text-align: right;
+  color: rgb(236, 115, 176);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.imageContainer {
+  position: relative;
+  /* width: 700px;
+  height: 500px; */
+  /* width: max-content;
+  height: max-content; */
+  display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #5645c3;
-  border-radius: 50%;
-  font-size: 12px;
-  color: white;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
+
+.blur {
+  position: absolute;
+  background: linear-gradient(to right, rgba(144, 142, 225, 0.54), rgba(186, 137, 231, 0.581));
+  filter: blur(10px);
+  /* transition-property: filter; */
+  transition: 1s filter linear;
+  -webkit-transition: 1s -webkit-filter linear;
+  -moz-transition: 1s -moz-filter linear;
+  -ms-transition: 1s -ms-filter linear;
+  -o-transition: 1s -o-filter linear;
+}
+.imageContainer:hover .blur {
+  /* background: linear-gradient(to right, rgba(229, 194, 240, 0.54), rgba(214, 131, 237, 0.581)); */
+  filter: blur(20px);
+}
+
+.img {
+  object-fit: cover;
+  border-radius: 15px;
+  /* border: 1px solid rgba(131, 131, 131, 0.5); */
+  z-index: 1;
 }
