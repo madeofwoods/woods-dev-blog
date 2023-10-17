@@ -5,7 +5,8 @@
   transform: translateY(-50%);
   display: flex;
   gap: 10px;
-  height: max-content;
+  /* height: max-content; */
+  min-height: 150px;
 }
 
 .powerbar {
@@ -24,7 +25,11 @@
   /* top: calc(100% - 10px); */
   filter: blur(2px);
   z-index: -2;
-  /* animation: blur 1s forwards; */
+  animation: flicker 4s forwards infinite;
+}
+
+.glowActive {
+  animation: blur 1.5s forwards 0.2s;
 }
 
 @keyframes blur {
@@ -36,6 +41,28 @@
   to {
     height: 0%;
     top: 100%;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    filter: blur(2px);
+  }
+  20% {
+    filter: blur(3px);
+    background-color: rgb(211, 149, 225, 0.4);
+  }
+  40% {
+    filter: blur(2px);
+    background-color: rgba(202, 120, 220, 0.4);
+  }
+  60% {
+    filter: blur(3px);
+    background-color: rgba(225, 140, 245, 0.3);
+  }
+  80% {
+    filter: blur(2px);
+    background-color: rgba(195, 149, 225, 0.3);
   }
 }
 
