@@ -1,0 +1,17 @@
+.glass {
+  margin-bottom: 40px;
+  width: 700px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgb(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.098);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0, 37);
+  user-select: none;
+}

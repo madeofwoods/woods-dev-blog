@@ -40,9 +40,11 @@ const TableOfContents = ({ headings, ids }) => {
     ids.forEach((id) => observer.observe(document.getElementById(id)));
 
     return () => {
-      ids.forEach((id) => {
-        observer.unobserve(document.getElementById(id));
-      });
+      // ids.forEach((id) => {
+      //   observer.unobserve(document.getElementById(id));
+      // });
+
+      observer.disconnect();
     };
   }, [ids]);
 
@@ -58,7 +60,6 @@ const TableOfContents = ({ headings, ids }) => {
           <a
             href={`#${heading.id}`}
             className={`${styles.heading} ${active == heading.id && styles.active}`}
-            // style={active == heading.id ? { color: "#a089b9" } : { color: "var(--text)" }}
             key={heading.id}
             scroll={true}
             onClick={(e) => handleClick(e, heading.id)}

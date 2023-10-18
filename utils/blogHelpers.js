@@ -31,3 +31,19 @@ export const getBlog = async (slug) => {
     frontMatter,
   };
 };
+
+export const getHeadings = (data) => {
+  const headings = data
+    .split("\n")
+    .filter((line) => line[0] === "#")
+    .map((line) => line.slice(2));
+
+  const headingsWithId = headings.map((heading) => ({
+    heading: heading,
+    id: heading.toLowerCase().split(" ").join("-"),
+  }));
+
+  const ids = headings.map((heading) => heading.toLowerCase().split(" ").join("-"));
+
+  return { headings: headingsWithId, ids };
+};

@@ -1,0 +1,13 @@
+.container {
+  /* background-color: black; */
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 500px;
+}
+
+.loading {
+  background-color: red;
+}
