@@ -5,6 +5,7 @@ import { components } from "@/components/MDX/CustomComponents";
 import rehypePrism from "rehype-prism-plus";
 import rehypeCodeTitles from "rehype-code-titles";
 import TableOfContents from "@/components/TableOfContents/TableOfContents";
+import { dictionary } from "@/utils/definitions";
 
 const mdxOptions = {
   mdxOptions: {
@@ -19,6 +20,11 @@ const BlogPage = async ({ params }) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{data.frontMatter.title}</h1>
+      <div className={styles.subtitle}>
+        <span>{dictionary[data.frontMatter.topic].title || ""}</span>
+        {" // "}
+        <span>{data.frontMatter.dateString}</span>
+      </div>
       <TableOfContents headings={headings} ids={ids} />
       <div className={styles.blogWrapper}>
         <MDXRemote source={data.content} components={components} options={mdxOptions} />
