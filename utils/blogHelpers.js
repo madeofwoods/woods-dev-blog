@@ -7,7 +7,6 @@ export const getAllBlogs = () => {
 
   const posts = files.map((filename) => {
     const mdxWithMeta = fs.readFileSync(path.join("posts", filename));
-    console.log(matter(mdxWithMeta));
     const { data: frontMatter } = matter(mdxWithMeta);
     console.log(frontMatter);
     return {
@@ -17,6 +16,12 @@ export const getAllBlogs = () => {
   });
 
   return posts;
+};
+
+export const getFilteredBlogs = (topic) => {
+  const blogs = getAllBlogs();
+
+  return blogs.filter((blog) => blog.frontMatter.topic == topic);
 };
 
 export const getBlog = async (slug) => {

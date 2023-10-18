@@ -1,7 +1,6 @@
 .container {
   width: 700px;
   margin: auto;
-  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,4 +8,12 @@
   gap: 30px;
   /* padding: 50px; */
   z-index: 5;
+}
+
+.year {
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
+  margin-left: 50px;
+  margin-bottom: 30px;
 }

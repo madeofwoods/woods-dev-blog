@@ -20,7 +20,7 @@
   border: 1px solid rgba(255, 255, 255, 0.098);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0, 37);
   user-select: none;
-  animation: focus 2s linear forwards;
+  animation: focus 1s linear forwards;
 }
 
 @keyframes focus {

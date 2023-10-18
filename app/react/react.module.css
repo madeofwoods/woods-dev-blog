@@ -1,8 +1,40 @@
 .container {
-  /* background-color: red; */
-  position: absolute;
-  width: 100vw;
-  height: calc(100vh - 120px);
-  top: 120px;
-  left: 0%;
+  width: 700px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  /* padding: 50px; */
+  z-index: 5;
+}
+
+.titleContainer {
+  z-index: 5;
+  margin-bottom: 50%;
+  opacity: 0;
+  animation: fadeIn 3s linear forwards 1s;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 700;
+  padding: 30px 140px;
+}
+
+.fadeIn {
+  z-index: 5;
+  opacity: 0;
+  animation: fadeIn 3s linear forwards 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

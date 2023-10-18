@@ -1,6 +1,6 @@
 import BlurBackground from "@/components/BallBackground/BallBackground";
 import styles from "./page.module.css";
-import BlogLinks from "@/components/BlogLinks/BlogLinks";
+import BlogLinks from "@/components/AllBlogLinks/AllBlogLinks";
 import HeroCard from "@/components/HeroCard/HeroCard";
 import Topics from "@/components/Topics/Topics";
 

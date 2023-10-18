@@ -1,12 +1,6 @@
 import Link from "next/link";
 import styles from "./topicsCard.module.css";
-
-const dictionary = {
-  three: { title: "3D Dev", desc: "My ThreeJS journey, using RTF and WebGL" },
-  react: { title: "React", desc: "My web dev journey, using React and NextJS" },
-  game: { title: "Game Dev", desc: "My game dev journey with JS and Unity" },
-};
-
+import { dictionary } from "@/utils/definitions";
 const TopicsCard = ({ topic }) => {
   return (
     <Link href={`/${topic}`} className={styles.container}>

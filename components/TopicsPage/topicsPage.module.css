@@ -1,0 +1,33 @@
+.titleContainer {
+  z-index: 5;
+  margin-bottom: 50%;
+  opacity: 0;
+  animation: fadeIn 0.8s linear forwards 0.1s;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 700;
+  padding: 30px 140px;
+}
+
+.fadeIn {
+  z-index: 5;
+  opacity: 0;
+  animation: fadeIn 3s linear forwards 1s;
+}
+
+.emptyBlog {
+  width: 400px;
+  padding: 30px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

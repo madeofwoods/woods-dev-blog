@@ -1,11 +1,7 @@
 import styles from "./glass.module.css";
 
-const Glass = ({ children, height }) => {
-  return (
-    <div className={styles.glass} style={{ height: height || 80 }}>
-      {children}
-    </div>
-  );
+const Glass = ({ children }) => {
+  return <div className={styles.glass}>{children}</div>;
 };
 
 export default Glass;
