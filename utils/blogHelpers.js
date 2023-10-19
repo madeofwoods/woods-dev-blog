@@ -6,7 +6,7 @@ export const getAllBlogs = () => {
   const files = fs.readdirSync("posts");
 
   const posts = files.map((filename) => {
-    const mdxWithMeta = fs.readFileSync(path.join("posts", filename));
+    const mdxWithMeta = fs.readFileSync(path.join(process.cwd(), "posts", filename));
     const { data: frontMatter } = matter(mdxWithMeta);
     console.log(frontMatter);
     return {
@@ -26,7 +26,7 @@ export const getFilteredBlogs = (topic) => {
 
 export const getBlog = async (slug) => {
   console.log(slug);
-  const source = fs.readFileSync(path.join("posts", slug + ".mdx"), "utf-8");
+  const source = fs.readFileSync(path.join(process.cwd(), "posts", slug + ".mdx"), "utf-8");
 
   const { data: frontMatter, content } = matter(source);
   console.log(content);
