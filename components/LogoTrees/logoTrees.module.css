@@ -6,10 +6,35 @@
 
 .trees {
   filter: invert(var(--invert));
+  /* animation: rotate 5s linear infinite; */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+    transform-origin: bottom center;
+  }
+
+  25% {
+    transform: rotateZ(5deg);
+  }
+
+  50% {
+    transform: rotateZ(0deg);
+  }
+
+  75% {
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+    transform-origin: bottom center;
+  }
 }
 
 .treeContainer {
   width: 12px;
+  height: 30px;
   position: relative;
   cursor: pointer;
 }
@@ -30,6 +55,60 @@
 
 .letterFade {
   animation: letterFade 1s linear forwards 1s;
+}
+
+.container div:nth-child(1) .treeFade {
+  animation-delay: 1.2s;
+}
+
+.container div:nth-child(2) .treeFade {
+  animation-delay: 1.4s;
+}
+
+.container div:nth-child(3) .treeFade {
+  animation-delay: 1.6s;
+}
+
+.container div:nth-child(4) .treeFade {
+  animation-delay: 1.8s;
+}
+
+.container div:nth-child(5) .treeFade {
+  animation-delay: 2s;
+}
+
+.container div:nth-child(6) .treeFade,
+.container div:nth-child(1) .letterFade {
+  animation-delay: 2.2s;
+}
+
+.container div:nth-child(7) .treeFade,
+.container div:nth-child(2) .letterFade {
+  animation-delay: 2.4s;
+}
+.container div:nth-child(8) .treeFade,
+.container div:nth-child(3) .letterFade {
+  animation-delay: 2.6s;
+}
+
+.container div:nth-child(4) .letterFade {
+  animation-delay: 2.8s;
+}
+
+.container div:nth-child(5) .letterFade {
+  animation-delay: 3s;
+}
+
+.container div:nth-child(6) .letterFade {
+  animation-delay: 3.2s;
+}
+
+.container div:nth-child(7) .letterFade {
+  animation-delay: 3.4s;
+}
+
+.container div:nth-child(8) .letterFade {
+  animation-delay: 3.6s;
 }
 
 @keyframes treeFade {

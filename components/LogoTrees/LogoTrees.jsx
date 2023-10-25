@@ -2,20 +2,20 @@
 
 import Image from "next/image";
 import styles from "./logoTrees.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const trees = { w: 20, h: 30 };
 
 const LogoTrees = () => {
   const [isTree, setIsTree] = useState({
-    0: true,
-    1: true,
-    2: true,
-    3: true,
-    4: true,
-    5: true,
-    6: true,
-    7: true,
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+    7: false,
     8: true,
     9: true,
     10: true,
@@ -39,8 +39,8 @@ const LogoTrees = () => {
         <Image
           className={`${styles.trees} ${!isTree[1] && styles.treeFade}`}
           src="/trees/treeTwo.png"
-          width={trees.w}
-          height={trees.h}
+          width={17}
+          height={25}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[1] && styles.letterFade}`}>A</div>
@@ -49,8 +49,8 @@ const LogoTrees = () => {
         <Image
           className={`${styles.trees} ${!isTree[2] && styles.treeFade}`}
           src="/trees/treeFour.png"
-          width={trees.w}
-          height={trees.h}
+          width={17}
+          height={27}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[2] && styles.letterFade}`}>D</div>
@@ -59,8 +59,8 @@ const LogoTrees = () => {
         <Image
           className={`${styles.trees} ${!isTree[3] && styles.treeFade}`}
           src="/trees/treeSeven.png"
-          width={trees.w}
-          height={trees.h}
+          width={20}
+          height={29}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[3] && styles.letterFade}`}>E</div>
@@ -69,8 +69,8 @@ const LogoTrees = () => {
         <Image
           className={`${styles.trees} ${!isTree[4] && styles.treeFade}`}
           src="/trees/treeTwo.png"
-          width={trees.w}
-          height={trees.h}
+          width={20}
+          height={27}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[4] && styles.letterFade}`}>F</div>
@@ -79,8 +79,8 @@ const LogoTrees = () => {
         <Image
           className={`${styles.trees} ${!isTree[5] && styles.treeFade}`}
           src="/trees/treeThree.png"
-          width={trees.w}
-          height={trees.h}
+          width={20}
+          height={26}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[5] && styles.letterFade}`}>R</div>
@@ -89,8 +89,8 @@ const LogoTrees = () => {
         <Image
           className={`${styles.trees} ${!isTree[6] && styles.treeFade}`}
           src="/trees/treeSeven.png"
-          width={trees.w}
-          height={trees.h}
+          width={20}
+          height={25}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[6] && styles.letterFade}`}>O</div>
@@ -99,8 +99,8 @@ const LogoTrees = () => {
         <Image
           className={`${styles.trees} ${!isTree[7] && styles.treeFade}`}
           src="/trees/treeOne.png"
-          width={trees.w}
-          height={trees.h}
+          width={20}
+          height={26}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[7] && styles.letterFade}`}>M</div>
@@ -110,7 +110,7 @@ const LogoTrees = () => {
           className={`${styles.trees} ${!isTree[8] && styles.treeFade}`}
           src="/trees/treeTwo.png"
           width={trees.w}
-          height={trees.h}
+          height={31}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[8] && styles.letterFade}`}>W</div>
@@ -120,7 +120,7 @@ const LogoTrees = () => {
           className={`${styles.trees} ${!isTree[9] && styles.treeFade}`}
           src="/trees/treeThree.png"
           width={trees.w}
-          height={trees.h}
+          height={28}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[9] && styles.letterFade}`}>O</div>
@@ -130,7 +130,7 @@ const LogoTrees = () => {
           className={`${styles.trees} ${!isTree[10] && styles.treeFade}`}
           src="/trees/treeOne.png"
           width={trees.w}
-          height={trees.h}
+          height={29}
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[10] && styles.letterFade}`}>O</div>
