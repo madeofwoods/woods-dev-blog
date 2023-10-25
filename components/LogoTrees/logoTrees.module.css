@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.trees {
+  filter: invert(var(--invert));
+}
+
+.treeContainer {
+  width: 12px;
+  position: relative;
+  cursor: pointer;
+}
+
+.letter {
+  color: var(--text);
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  font-size: 12px;
+}
+
+.treeFade {
+  animation: treeFade 1s linear forwards;
+}
+
+.letterFade {
+  animation: letterFade 1s linear forwards 1s;
+}
+
+@keyframes treeFade {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotateY(90deg);
+  }
+}
+
+@keyframes letterFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) rotateY(90deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(-50%) rotateY(0deg);
+  }
+}

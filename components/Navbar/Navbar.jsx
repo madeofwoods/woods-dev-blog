@@ -3,17 +3,22 @@ import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import svgIcon from "../../public/svg/tree.svg";
 import Image from "next/image";
 import Link from "next/link";
+import LogoTrees from "../LogoTrees/LogoTrees";
 
 const Navbar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.navLogo}>
-          <Link href="/">
+          {/* <Link href="/">
             <Image className={styles.logo} src={svgIcon} width={40} height={40} alt="svg" />
-          </Link>
+          </Link> */}
           {/* <SVGComponent /> */}
         </div>
+        {/* <div className={styles.title}>M A D E F R O M W O O D S</div> */}
+        <Link href="/">
+          <LogoTrees />
+        </Link>
         <ThemeToggle />
       </div>
     </div>

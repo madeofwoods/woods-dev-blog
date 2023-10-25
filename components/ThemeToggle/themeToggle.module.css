@@ -1,7 +1,7 @@
 .themeToggle {
   /* border: 1px solid var(--text); */
-  width: 60px;
-  height: 60px;
+  width: 49px;
+  height: 49px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -10,6 +10,11 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  background-color: rgba(158, 158, 158, 0.15);
+}
+
+.themeToggle:hover {
+  background-color: rgba(158, 158, 158, 0.2);
 }
 
 .moon {
@@ -22,7 +27,8 @@
 .sun {
   width: 25px;
   height: 25px;
-  background: linear-gradient(to top, orangered, orange);
+  background: linear-gradient(30deg, rgb(255, 47, 0), orangered, rgb(255, 128, 0), orange);
+  /* filter: blur(1px); */
   border-radius: 50%;
 }
 
@@ -61,6 +67,21 @@
   opacity: 0;
 }
 
+.loadMoonlight {
+  top: 100%;
+}
+
+.loadMoondark {
+  opacity: 1;
+  top: 0%;
+}
+
+.loadSunlight {
+  top: 0%;
+}
+.loadSundark {
+  top: -100%;
+}
 .sunLight {
   animation: sunLight 2s linear forwards 0.5s;
 }
@@ -79,20 +100,24 @@
 @keyframes sunLight {
   from {
     top: 100%;
+    filter: blur(3px);
   }
 
   to {
     top: 0%;
+    filter: none;
   }
 }
 
 @keyframes sunDark {
   from {
     top: 0%;
+    filter: none;
   }
 
   to {
     top: 100%;
+    filter: blur(1px);
   }
 }
 
@@ -109,10 +134,12 @@
 @keyframes moonDark {
   from {
     opacity: 0;
+    filter: blur(1px);
   }
 
   to {
     opacity: 1;
+    filter: none;
   }
 }
 
