@@ -1,6 +1,6 @@
 .titleContainer {
   z-index: 5;
-  margin-bottom: 50%;
+  margin-bottom: 300px;
   opacity: 0;
   animation: fadeIn 0.8s linear forwards 0.1s;
 }

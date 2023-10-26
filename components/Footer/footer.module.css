@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+  bottom: 0%;
+  width: 100%;
+  padding: 30px 20px;
+  height: 150px;
+  /* background-color: #060b17; */
+  background: linear-gradient(#101b3636, #000000);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(10px);
+}
+
+.linksContainer {
+  color: var(--text);
+  font-size: 100;
+}

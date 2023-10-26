@@ -59,13 +59,14 @@ body {
 }
 
 .wrapper {
-  max-width: 1536px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px 80px;
+  /* max-width: 1536px; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* padding: 0px 80px; */
   z-index: 5;
+  position: relative;
 }
-
+/* 
 @media screen and (max-width: 1536px) {
   .wrapper {
     max-width: 1366px;
@@ -97,7 +98,7 @@ body {
     max-width: 475px;
     padding: 5px 40px;
   }
-}
+} */
 
 /*
  * Laserwave Theme originally by Jared Jones for Visual Studio Code
