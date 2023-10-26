@@ -10,11 +10,11 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  background-color: rgba(158, 158, 158, 0.15);
+  background-color: var(--iconBg);
 }
 
 .themeToggle:hover {
-  background-color: rgba(158, 158, 158, 0.2);
+  background-color: var(--iconBgHover);
 }
 
 .moon {

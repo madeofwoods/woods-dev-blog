@@ -9,13 +9,11 @@ const Navbar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <div className={styles.navLogo}>
-          {/* <Link href="/">
-            <Image className={styles.logo} src={svgIcon} width={40} height={40} alt="svg" />
-          </Link> */}
-          {/* <SVGComponent /> */}
+        <div className={styles.homeContainer}>
+          <Link href="/">
+            <Image className={styles.home} src="/img/home.png" width={30} height={30} alt="svg" />
+          </Link>
         </div>
-        {/* <div className={styles.title}>M A D E F R O M W O O D S</div> */}
         <Link href="/">
           <LogoTrees />
         </Link>

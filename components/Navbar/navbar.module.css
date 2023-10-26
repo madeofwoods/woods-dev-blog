@@ -38,3 +38,25 @@
 .logo > svg {
   opacity: 0;
 }
+
+.homeContainer {
+  width: 49px;
+  height: 49px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--iconBg);
+}
+
+.homeContainer:hover {
+  background-color: var(--iconBgHover);
+}
+
+.home {
+  filter: invert(var(--softInvert));
+}

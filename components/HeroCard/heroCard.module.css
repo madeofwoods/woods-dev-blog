@@ -63,10 +63,32 @@
   font-size: 38px;
   text-align: left;
   color: var(--text);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .titleSpan {
   margin-top: 20px;
+  font-size: 32px;
   color: var(--softText);
 }
+
+.titleName {
+  /* background: linear-gradient(45deg, rgb(137, 137, 137), rgb(255, 255, 255), rgb(107, 107, 107));
+  background-clip: text;
+  color: none;
+  background-size: 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text 3s alternate infinite; */
+  /* text-transform: uppercase; */
+}
+/* 
+@keyframes text {
+  0% {
+    background-position: 20% 20%;
+  }
+
+  100% {
+    background-position: 80% 80%;
+  }
+} */

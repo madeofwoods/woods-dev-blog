@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   /* padding: 50px; */
   z-index: 5;
   margin-bottom: 200px;
@@ -30,7 +30,7 @@
 }
 
 .glass {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   width: 700px;
   height: 80px;
   padding: 20px;

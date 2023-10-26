@@ -34,6 +34,9 @@ a {
   --titleText: #c4c4c4;
   --contrast: rgb(177, 143, 212);
   --invert: 1;
+  --softInvert: 0.8;
+  --iconBg: rgba(207, 207, 207, 0.1);
+  --iconBgHover: rgba(201, 201, 201, 0.15);
 }
 
 .light {
@@ -45,6 +48,9 @@ a {
   --contrast: rgb(249, 62, 62);
   --contrast: rgb(3, 3, 3);
   --invert: 0;
+  --softInvert: 0.2;
+  --iconBg: rgba(207, 207, 207, 0.1);
+  --iconBgHover: rgba(201, 201, 201, 0.2);
 }
 
 html,

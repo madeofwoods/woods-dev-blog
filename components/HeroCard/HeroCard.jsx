@@ -5,10 +5,11 @@ const HeroCard = () => {
     <div className={styles.container}>
       <div className={styles.glass}>
         <div className={styles.title}>
-          Hi there, I&apos;m Matt. Welcome to my diary!&nbsp;
+          Hi there, I&apos;m <span className={styles.titleName}>Matt Woods</span>. Welcome to my blog.&nbsp;
           <div className={styles.titleSpan}>
-            Here I share my experiences as a frontend developer, focusing on React, NextJS, React Three Fiber,
-            Shaders and Game Development.
+            This is a coding journal, discussing things I create and learn on my journey as a frontend
+            developer. I am focusing on React, NextJS, ThreeJS, React Three Fiber, Shaders and Game
+            Development.
           </div>
         </div>
       </div>

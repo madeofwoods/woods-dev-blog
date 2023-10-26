@@ -5,7 +5,7 @@ import styles from "./topicsPage.module.css";
 
 const TopicsPage = ({ blogs, title }) => {
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.titleContainer}>
         <Glass>
           <div className={styles.title}>{title}</div>
@@ -15,12 +15,14 @@ const TopicsPage = ({ blogs, title }) => {
         {blogs.length > 0 ? (
           <BlogLink blogs={blogs} />
         ) : (
-          <Glass>
-            <div className={styles.emptyBlog}>🚧 Blog In Construction 🚧</div>
-          </Glass>
+          <div className={styles.emptyBlogContainer}>
+            <Glass>
+              <div className={styles.emptyBlog}>🚧 Blog In Construction 🚧</div>
+            </Glass>
+          </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
