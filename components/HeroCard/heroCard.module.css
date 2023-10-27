@@ -15,9 +15,12 @@
   gap: 20px;
   padding: 50px;
   border-radius: 8px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgb(255, 255, 255, 0));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgb(255, 255, 255, 0.05));
+  background: var(--glassBg);
+  /* background: linear-gradient(135deg, rgba(151, 119, 194, 0.3), rgba(141, 157, 222, 0.2)); */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.098);
+  /* border: 1px solid rgba(84, 84, 84, 0.498); */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0, 37);
   user-select: none;
   animation: focus 1s linear forwards;
@@ -70,6 +73,7 @@
   margin-top: 20px;
   font-size: 32px;
   color: var(--softText);
+  color: rgb(61, 61, 61);
 }
 
 .titleName {

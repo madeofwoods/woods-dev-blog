@@ -28,6 +28,7 @@ a {
 
 .dark {
   --bg: #060b17;
+  --glassBG: linear-gradient(135deg, rgba(160, 140, 186, 0.3), rgba(141, 157, 222, 0.2));
   --text: #ddd;
   --softBg: #1f273a;
   --softText: #a6a6a6;
@@ -37,10 +38,11 @@ a {
   --softInvert: 0.8;
   --iconBg: rgba(207, 207, 207, 0.1);
   --iconBgHover: rgba(201, 201, 201, 0.15);
+  /* --glassBG: red; */
 }
 
 .light {
-  --bg: bisque;
+  --bg: white;
   --text: black;
   --softBg: #f5f2f2;
   --softText: #605f5f;
@@ -51,6 +53,7 @@ a {
   --softInvert: 0.2;
   --iconBg: rgba(207, 207, 207, 0.1);
   --iconBgHover: rgba(201, 201, 201, 0.2);
+  --glassBg: linear-gradient(135deg, rgba(160, 140, 186, 0.3), rgba(141, 157, 222, 0.2));
 }
 
 html,
