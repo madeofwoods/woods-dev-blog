@@ -65,15 +65,14 @@
   padding: 0px 20px;
   font-size: 38px;
   text-align: left;
-  color: var(--text);
+  color: var(--glassText);
   font-weight: 500;
 }
 
 .titleSpan {
   margin-top: 20px;
   font-size: 32px;
-  color: var(--softText);
-  color: rgb(61, 61, 61);
+  color: var(--glassTextSoft);
 }
 
 .titleName {

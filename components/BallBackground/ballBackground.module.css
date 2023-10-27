@@ -20,7 +20,7 @@
   border-radius: 50%;
   animation: rotate 15s linear infinite;
   z-index: -1;
-  background: linear-gradient(55deg, hotpink, 35%, rgb(17, 17, 255), aquamarine);
+  background: var(--mainShadow);
   transition: 0.1s;
 }
 
@@ -31,7 +31,7 @@
   top: 0%;
   left: 0%;
   z-index: 2;
-  backdrop-filter: blur(120px);
+  backdrop-filter: blur(var(--blur));
   opacity: 1;
 }
 

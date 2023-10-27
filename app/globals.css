@@ -39,11 +39,15 @@ a {
   --softInvert: 0.8;
   --iconBg: rgba(207, 207, 207, 0.1);
   --iconBgHover: rgba(201, 201, 201, 0.15);
-  /* --glassBG: red; */
+  --mainShadow: linear-gradient(55deg, hotpink, 35%, rgb(17, 17, 255), aquamarine);
+  --blur: 120px;
+  --glassText: #ddd;
+  --glassTextSoft: #a6a6a6;
+  --glassBgHover: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgb(255, 255, 255, 0));
 }
 
 .light {
-  --bg: white;
+  --bg: rgb(255, 255, 255);
   --text: black;
   --softBg: #f5f2f2;
   --softText: #605f5f;
@@ -54,7 +58,12 @@ a {
   --softInvert: 0.2;
   --iconBg: rgba(207, 207, 207, 0.1);
   --iconBgHover: rgba(201, 201, 201, 0.2);
-  --glassBg: linear-gradient(135deg, rgba(160, 140, 186, 0.3), rgba(141, 157, 222, 0.2));
+  --glassBg: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(100, 100, 101, 0.3));
+  --mainShadow: linear-gradient(555deg, rgb(130, 130, 130), rgb(86, 86, 86));
+  --blur: 220px;
+  --glassText: #faf9f9;
+  --glassTextSoft: #ebebeb;
+  --glassBgHover: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(100, 100, 101, 0.4));
 }
 
 html,
