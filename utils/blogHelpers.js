@@ -8,7 +8,6 @@ export const getAllBlogs = () => {
   const posts = files.map((filename) => {
     const mdxWithMeta = fs.readFileSync(path.join(process.cwd(), "posts", filename));
     const { data: frontMatter } = matter(mdxWithMeta);
-    console.log(frontMatter);
     return {
       frontMatter,
       slug: filename.split(".")[0],
@@ -20,8 +19,9 @@ export const getAllBlogs = () => {
 
 export const getFilteredBlogs = (topic) => {
   const blogs = getAllBlogs();
+  const sortedBlogs = sortBlogsByDate(blogs);
 
-  return blogs.filter((blog) => blog.frontMatter.topic == topic);
+  return sortedBlogs.filter((blog) => blog.frontMatter.topic == topic);
 };
 
 export const getBlog = async (slug) => {
@@ -52,3 +52,19 @@ export const getHeadings = (data) => {
 
   return { headings: headingsWithId, ids };
 };
+
+export const sortBlogsByDate = (blogs) => {
+  const sortedBlogs = blogs.sort((a, b) => {
+    return new Date(b.frontMatter.dateString).getTime() - new Date(a.frontMatter.dateString).getTime();
+  });
+
+  return sortedBlogs;
+};
+
+export const filterBlogsByYear = (blogs, year) => {
+  return blogs.filter((blog) => blog.frontMatter.dateString.slice(0, 4) == year);
+};
+
+export const getYearsArray = (blogs) => [
+  ...new Set(blogs.map((item) => item.frontMatter.dateString.slice(0, 4))),
+];

@@ -6,8 +6,8 @@
   justify-content: center;
   flex-direction: column;
   gap: 30px;
-  /* padding: 50px; */
   z-index: 5;
+  margin-bottom: 50px;
 }
 
 .year {

@@ -19,7 +19,7 @@ const Footer = () => {
             React
           </Link>
           <Link className={styles.link} href="/three">
-            ThreeJS
+            3D Dev
           </Link>
           <Link className={styles.link} href="/game">
             Games

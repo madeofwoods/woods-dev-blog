@@ -1,15 +1,22 @@
 import styles from "./allBlogLinks.module.css";
-import { getAllBlogs } from "@/utils/blogHelpers";
-import BlogLink from "../BlogLinks/BlogLinks";
+import { filterBlogsByYear, getYearsArray, sortBlogsByDate } from "@/utils/blogHelpers";
+import BlogLinks from "../BlogLinks/BlogLinks";
 
-const AllBlogLinks = () => {
-  const links = getAllBlogs();
-  links.reverse();
-  console.log(links);
+const AllBlogLinks = ({ blogs }) => {
+  const sortedBlogs = sortBlogsByDate(blogs);
+  const years = getYearsArray(blogs);
+
+  const twentyThree = filterBlogsByYear(sortedBlogs, "2023");
+  console.log("twentyThree", twentyThree);
+  console.log(years);
   return (
     <div className={styles.container}>
-      <div className={styles.year}>2023</div>
-      <BlogLink blogs={links} />
+      {years.map((year) => (
+        <div key={year} className={styles.yearContainer}>
+          <div className={styles.year}>{year}</div>
+          <BlogLinks blogs={filterBlogsByYear(sortedBlogs, year)} />
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import Glass from "../Glass/Glass";
-import BlogLink from "../BlogLinks/BlogLinks";
 import styles from "./topicsPage.module.css";
+import AllBlogLinks from "../AllBlogLinks/AllBlogLinks";
 
 const TopicsPage = ({ blogs, title }) => {
   return (
@@ -13,7 +13,7 @@ const TopicsPage = ({ blogs, title }) => {
       </div>
       <div className={styles.fadeIn}>
         {blogs.length > 0 ? (
-          <BlogLink blogs={blogs} />
+          <AllBlogLinks blogs={blogs} />
         ) : (
           <div className={styles.emptyBlogContainer}>
             <Glass>
