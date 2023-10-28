@@ -8,7 +8,9 @@ import { getAllBlogs } from "@/utils/blogHelpers";
 export default function Home() {
   return (
     <div className={styles.container}>
-      <HeroCard />
+      <div className={styles.cardAndBall}>
+        <HeroCard />
+      </div>
       <Topics />
       <AllBlogLinks blogs={getAllBlogs()} />
       <BlurBackground page={"home"} />

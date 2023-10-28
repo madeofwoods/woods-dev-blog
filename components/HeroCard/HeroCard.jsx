@@ -3,6 +3,7 @@ import styles from "./heroCard.module.css";
 const HeroCard = () => {
   return (
     <div className={styles.container}>
+      <div className={`${styles.ball}`}></div>
       <div className={styles.glass}>
         <div className={styles.title}>
           Hi there, I&apos;m <span className={styles.titleName}>Matt Woods</span>. Welcome to my blog.&nbsp;

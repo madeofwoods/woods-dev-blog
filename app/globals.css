@@ -44,6 +44,9 @@ a {
   --glassText: #ddd;
   --glassTextSoft: #a6a6a6;
   --glassBgHover: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgb(255, 255, 255, 0));
+  --glassLinksHover: 0 8px 30px 0 rgba(254, 50, 230, 0.17);
+  --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
+  --mixBlend: color-dodge;
 }
 
 .light {
@@ -58,12 +61,16 @@ a {
   --softInvert: 0.2;
   --iconBg: rgba(207, 207, 207, 0.1);
   --iconBgHover: rgba(201, 201, 201, 0.2);
-  --glassBg: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(100, 100, 101, 0.3));
+  --glassBg: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(210, 210, 210, 0.3));
   --mainShadow: linear-gradient(555deg, rgb(130, 130, 130), rgb(86, 86, 86));
   --blur: 220px;
-  --glassText: #faf9f9;
-  --glassTextSoft: #ebebeb;
-  --glassBgHover: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(100, 100, 101, 0.4));
+  --glassText: #000000;
+  --glassTextSoft: #393939;
+  /* --glassBgHover: linear-gradient(135deg, rgba(185, 185, 185, 0.5), rgba(210, 210, 210, 0.4)); */
+  --glassBgHover: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgb(255, 255, 255, 0.4));
+  --glassLinksHover: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
+  --mixBlend: normal;
 }
 
 html,
