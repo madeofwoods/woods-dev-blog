@@ -1,8 +1,9 @@
 "use client";
+import { ThemeContext } from "@/context/ThemeContext";
 import styles from "./tableOfContents.module.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
-// SCroll Bar
+// Scroll Bar
 
 const handleClick = (e, id) => {
   e.preventDefault();
@@ -10,9 +11,9 @@ const handleClick = (e, id) => {
 };
 
 const TableOfContents = ({ headings, ids }) => {
+  const { theme } = useContext(ThemeContext);
   const [active, setActive] = useState("");
   const [scroll, setScroll] = useState(0);
-  console.log(ids);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -21,7 +22,6 @@ const TableOfContents = ({ headings, ids }) => {
       let winHeight = window.innerHeight;
       let scrollPercent = scrollTop / (docHeight - winHeight);
       let scrollPercentRounded = Math.round(scrollPercent * 100);
-      console.log(scrollPercentRounded);
       setScroll(scrollPercentRounded);
     });
   }, []);
@@ -52,7 +52,7 @@ const TableOfContents = ({ headings, ids }) => {
     <div className={styles.container}>
       <div className={styles.powerbar}>
         <div className={styles.power} style={{ height: `${scroll}%` }}>
-          <div className={styles.glow}></div>
+          {theme == "dark" && <div className={styles.glow}></div>}
         </div>
       </div>
       <div className={styles.headings}>

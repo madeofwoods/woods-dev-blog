@@ -32,7 +32,7 @@
 .ul {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 20px;
+  margin: 20px 0px 20px 30px;
   line-height: 30px;
 }
 
@@ -90,7 +90,7 @@
   counter-reset: list-number;
   margin-bottom: 20px;
   margin-left: 30px;
-  margin-right: 50px;
+  margin-right: 0px;
 }
 
 .listItem {
@@ -131,7 +131,7 @@
 
 .blur {
   position: absolute;
-  background: linear-gradient(to right, rgba(144, 142, 225, 0.54), rgba(186, 137, 231, 0.581));
+  background: var(--mdxImageBlur);
   filter: blur(10px);
   transition: 1s filter linear;
   -webkit-transition: 1s -webkit-filter linear;

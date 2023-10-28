@@ -53,6 +53,16 @@ a {
   --mdxTagBg: #3f3a4c;
   --mdxTag: #ea8eec;
   --mdxOrderedList: #ec73b0;
+  --tocPowerBar: hotpink;
+  --tocGlow: #d395e1;
+  --tocActiveText: #fc89c3;
+  --tocHover: #272a42;
+  --tocHoverActiveText: #fc89c3;
+  --tocHoverText: #ddd;
+  --mdxImageBlur: linear-gradient(to right, rgba(144, 142, 225, 0.54), rgba(186, 137, 231, 0.581));
+  --codeBg: #362f3f;
+  --codeBorder: #603bf6;
+  --codeHighlight: rgba(68, 65, 113, 0.5);
 }
 
 .light {
@@ -75,13 +85,27 @@ a {
   --glassBgHover: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgb(255, 255, 255, 0.4));
   --glassLinksHover: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
-  --mixBlend: normal;
-  --mdxTitle: #151534;
+  --mixBlend: luminosity;
+  --mdxTitle: #09572a;
   --mdxH1: #30304a;
-  --mdxStrong: #597ed5;
-  --mdxTagBg: #686868;
-  --mdxTag: #8ec8ff;
-  --mdxOrderedList: #20204d;
+  --mdxStrong: #10743a;
+  --mdxTagBg: #434444;
+  --mdxTag: #50de8b;
+  --mdxTagBg: #14703b;
+  --mdxTag: white;
+  --mdxOrderedList: #14984b;
+  --mdxOrderedList: black;
+  --tocPowerBar: #1fc062;
+  --tocGlow: #ff8649;
+  --tocGlow: #70c071;
+  --tocActiveText: #176f3a;
+  --tocHover: #ececec;
+  --tocHoverActiveText: #36965c;
+  --tocHoverText: black;
+  --mdxImageBlur: linear-gradient(to right, rgba(43, 43, 43, 0.94), rgba(68, 68, 68, 0.581));
+  --codeBg: #040404;
+  --codeBorder: #603bf6;
+  --codeHighlight: rgba(68, 65, 113, 0.5);
 }
 
 html,
@@ -299,8 +323,8 @@ pre[class*="language-"] {
 .highlight-line {
   margin-left: -16px;
   margin-right: -16px;
-  background-color: rgba(68, 65, 113, 0.5); /* Set highlight bg color */
-  border-left: 4px solid rgb(96, 59, 246); /* Set highlight accent border color */
+  background-color: var(--codeHighlight); /* Set highlight bg color */
+  border-left: 4px solid var(--codeBorder); /* Set highlight accent border color */
 }
 
 .line-number::before {
@@ -322,7 +346,7 @@ pre[class*="language-"] {
   width: max-content;
   padding: 5px 12px;
   border-radius: 0.3rem 0.3rem 0 0;
-  border-top: 2px solid rgb(96, 59, 246);
+  border-top: 2px solid var(--codeBorder);
   position: relative;
   transform: translateX(-50%);
   left: 90%;

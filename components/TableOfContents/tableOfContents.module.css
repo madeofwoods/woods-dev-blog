@@ -11,13 +11,14 @@
 
 .powerbar {
   width: 3px;
-  background-color: rgb(108, 108, 108);
+  background-color: #6c6c6c;
 }
 
 .glow {
   width: 10px;
   height: 100%;
-  background-color: rgb(211, 149, 225, 0.3);
+  background-color: var(--tocGlow);
+  opacity: 0.4;
   position: absolute;
   transform: translate(-40%, -50%);
   border-radius: 50%;
@@ -50,26 +51,28 @@
   }
   20% {
     filter: blur(3px);
-    background-color: rgb(211, 149, 225, 0.4);
+    background-color: var(--tocGlow);
+    opacity: 0.3;
   }
   40% {
     filter: blur(2px);
-    background-color: rgba(202, 120, 220, 0.4);
+    /* background-color: rgba(202, 120, 220, 0.4); */
   }
   60% {
     filter: blur(3px);
-    background-color: rgba(225, 140, 245, 0.3);
+    opacity: 0.2;
+    /* background-color: rgba(225, 140, 245, 0.3); */
   }
   80% {
     filter: blur(2px);
-    background-color: rgba(195, 149, 225, 0.3);
+    /* background-color: rgba(195, 149, 225, 0.3); */
   }
 }
 
 .power {
   width: 100%;
   height: 100%;
-  background-color: hotpink;
+  background-color: var(--tocPowerBar);
   position: relative;
   z-index: 100;
 }
@@ -93,14 +96,14 @@
 }
 
 .heading:hover {
-  background-color: rgb(39, 42, 66);
-  color: var(--text);
+  background-color: var(--tocHover);
+  color: var(--tocHoverText);
 }
 
 .active {
-  color: rgb(227, 102, 238);
+  color: var(--tocActiveText);
 }
 
 .active:hover {
-  color: rgb(227, 102, 238);
+  color: var(--tocHoverActiveText);
 }

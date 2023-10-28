@@ -12,7 +12,7 @@ exclusion, hue, saturation, color, and luminosity */
   position: relative;
   z-index: 10;
   backdrop-filter: blur(10px);
-  /* mix-blend-mode: var(--mixBlend); */
+  mix-blend-mode: var(--mixBlend);
   /* mix-blend-mode: luminosity; */
 }
 
