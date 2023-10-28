@@ -1,12 +1,12 @@
 .container {
   min-height: calc(100vh - 200px);
   z-index: 5;
-  padding: 30px 0px;
+  padding: 50px 0px;
 }
 
 .titleContainer {
   z-index: 5;
-  margin-bottom: 300px;
+  margin-bottom: 150px;
   opacity: 0;
   animation: fadeIn 0.8s linear forwards 0.1s;
 }
@@ -19,8 +19,8 @@
 
 .fadeIn {
   z-index: 5;
-  opacity: 0;
-  animation: fadeIn 3s linear forwards 1s;
+  /* opacity: 0;
+  animation: fadeIn 3s linear forwards 1s; */
 }
 
 .emptyBlog {
@@ -30,6 +30,7 @@
 }
 .emptyBlogContainer {
   /* margin-bottom: 200px; */
+  margin-top: 200px;
 }
 
 @keyframes fadeIn {
