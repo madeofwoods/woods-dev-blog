@@ -47,8 +47,12 @@ a {
   --glassLinksHover: 0 8px 30px 0 rgba(254, 50, 230, 0.17);
   --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
   --mixBlend: color-dodge;
+  --mdxTitle: #9191d0;
   --mdxH1: #b27dd9;
   --mdxStrong: #b8b8ed;
+  --mdxTagBg: #3f3a4c;
+  --mdxTag: #ea8eec;
+  --mdxOrderedList: #ec73b0;
 }
 
 .light {
@@ -68,13 +72,16 @@ a {
   --blur: 220px;
   --glassText: #000000;
   --glassTextSoft: #393939;
-  /* --glassBgHover: linear-gradient(135deg, rgba(185, 185, 185, 0.5), rgba(210, 210, 210, 0.4)); */
   --glassBgHover: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgb(255, 255, 255, 0.4));
   --glassLinksHover: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
   --mixBlend: normal;
-  --mdxH1: #1b3395;
+  --mdxTitle: #151534;
+  --mdxH1: #30304a;
   --mdxStrong: #597ed5;
+  --mdxTagBg: #686868;
+  --mdxTag: #8ec8ff;
+  --mdxOrderedList: #20204d;
 }
 
 html,

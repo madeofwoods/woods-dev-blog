@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./customMDX.module.css";
 import { Source_Code_Pro } from "next/font/google";
+import { Item } from "./ClientCustomComponents";
 
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
@@ -32,16 +33,16 @@ const UL = ({ children }) => {
   return <ul className={styles.ul}>{children}</ul>;
 };
 
-const Item = ({ children }) => {
-  return (
-    <li className={styles.li}>
-      <span>
-        <Image className={styles.icon} src="/svg/arrow.svg" alt="" width={20} height={20} />
-      </span>
-      <span>{children}</span>
-    </li>
-  );
-};
+// const Item = ({ children }) => {
+//   return (
+//     <li className={styles.li}>
+//       <span>
+//         <Image className={styles.icon} src="/img/blackList.png" alt="" width={18} height={18} />
+//       </span>
+//       <span>{children}</span>
+//     </li>
+//   );
+// };
 
 const OL = ({ children }) => {
   return <ol className={styles.ordered}>{children}</ol>;
@@ -80,7 +81,7 @@ export const components = {
   strong: Strong,
   Tag: Tag,
   ul: UL,
-  li: Item,
+  li: (props) => <Item {...props} />,
   OL: OL,
   Item: OrderedItem,
   List: List,
