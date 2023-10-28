@@ -1,13 +1,28 @@
 .container {
   z-index: 4;
   padding: 40px;
-  mix-blend-mode: multiply;
   position: relative;
 }
 
 /* screen, overlay, darken, lighten, color-dodge, 
 color-burn, hard-light, soft-light, difference, 
 exclusion, hue, saturation, color, and luminosity */
+
+.glassContainer {
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  /* mix-blend-mode: var(--mixBlend); */
+  /* mix-blend-mode: luminosity; */
+}
+
+.glassOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
 
 .glass {
   position: relative;
