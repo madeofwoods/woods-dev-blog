@@ -49,6 +49,7 @@ a {
   --glassBgHover: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.077));
   --glassLinksHover: 0 8px 30px 0 rgba(254, 50, 230, 0.17);
   --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
+  --glassTopicsShadow: 0 3px 30px 0 rgba(128, 106, 255, 0.423);
   --mixBlend: color-dodge;
 
   --mdxTitle: #ffd1e8;
@@ -86,7 +87,7 @@ a {
 }
 
 .light {
-  --bg: rgb(255, 255, 255);
+  --bg: #ffffff;
   --text: black;
   --softBg: #f5f2f2;
   --softText: #605f5f;
@@ -103,8 +104,9 @@ a {
   --glassText: #000000;
   --glassTextSoft: #393939;
   --glassBgHover: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgb(255, 255, 255, 0.4));
-  --glassLinksHover: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glassLinksHover: 0 10px 32px 0 rgba(0, 0, 0, 0.4);
   --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
+  --glassTopicsShadow: 0 15px 32px 0 rgba(61, 61, 61, 0.423);
   --mixBlend: luminosity;
   --mdxTitle: #09572a;
   --mdxH1: #30304a;

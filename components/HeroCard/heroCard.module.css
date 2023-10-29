@@ -13,7 +13,6 @@ exclusion, hue, saturation, color, and luminosity */
   z-index: 10;
   backdrop-filter: blur(10px);
   mix-blend-mode: var(--mixBlend);
-  /* mix-blend-mode: luminosity; */
 }
 
 .glassOverlay {
@@ -27,7 +26,6 @@ exclusion, hue, saturation, color, and luminosity */
 .glass {
   position: relative;
   mix-blend-mode: var(--mixBlend);
-  /* mix-blend-mode: luminosity; */
   z-index: 10;
   margin-top: 100px;
   margin-bottom: 150px;
@@ -42,14 +40,11 @@ exclusion, hue, saturation, color, and luminosity */
   border-radius: 8px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgb(255, 255, 255, 0.05));
   background: var(--glassBg);
-  /* background: linear-gradient(135deg, rgba(151, 119, 194, 0.3), rgba(141, 157, 222, 0.2)); */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.068);
-  /* border: 1px solid rgba(84, 84, 84, 0.498); */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0, 0.37);
   box-shadow: var(--glassShadow);
   user-select: none;
-  /* animation: focus 1s linear forwards; */
 }
 
 @keyframes focus {
@@ -76,30 +71,7 @@ exclusion, hue, saturation, color, and luminosity */
   z-index: 1;
 }
 
-/* .blur {
-  width: 280px;
-  height: 280px;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 80%;
-  border-radius: 50%;
-  background: linear-gradient(55deg, hotpink, 35%, rgb(17, 17, 255), aquamarine);
-  animation: rotate 15s linear infinite;
-  z-index: -1;
-} */
-
 @keyframes rotateBall {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-@keyframes rotate {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);
   }
@@ -122,31 +94,4 @@ exclusion, hue, saturation, color, and luminosity */
   margin-top: 20px;
   font-size: 32px;
   color: var(--glassTextSoft);
-  /* background: linear-gradient(rgba(255, 255, 255, 0.529), rgba(255, 255, 255, 0.398));
-  background-size: cover;
-  background-blend-mode: color-burn;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent; */
 }
-
-.titleName {
-  /* background: linear-gradient(45deg, rgb(137, 137, 137), rgb(255, 255, 255), rgb(107, 107, 107));
-  background-clip: text;
-  color: none;
-  background-size: 250%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: text 3s alternate infinite; */
-  /* text-transform: uppercase; */
-}
-/* 
-@keyframes text {
-  0% {
-    background-position: 20% 20%;
-  }
-
-  100% {
-    background-position: 80% 80%;
-  }
-} */

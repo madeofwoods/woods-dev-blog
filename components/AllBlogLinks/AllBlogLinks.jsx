@@ -6,9 +6,6 @@ const AllBlogLinks = ({ blogs }) => {
   const sortedBlogs = sortBlogsByDate(blogs);
   const years = getYearsArray(blogs);
 
-  const twentyThree = filterBlogsByYear(sortedBlogs, "2023");
-  console.log("twentyThree", twentyThree);
-  console.log(years);
   return (
     <div className={styles.container}>
       {years.map((year) => (

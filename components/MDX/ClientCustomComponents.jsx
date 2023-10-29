@@ -12,10 +12,10 @@ export const Item = ({ children }) => {
       <span>
         <Image
           className={styles.icon}
-          src={theme == "light" ? "/img/greenArrow.png" : "/img/pinkArrow2.png"}
+          src={theme == "light" ? "/img/greenArrowWide.png" : "/img/lilacArrowWide.png"}
           alt=""
-          width={14}
-          height={14}
+          width={16}
+          height={16}
         />
       </span>
       <span>{children}</span>
