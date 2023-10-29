@@ -72,6 +72,7 @@ a {
   --mdxOrderedList: #ec73b0;
 
   --mdxLink: #eb9cf4;
+  --mdxLinkHover: #f0a9f8;
 
   --tocPowerBar: hotpink;
   --tocGlow: #d395e1;
@@ -120,6 +121,7 @@ a {
   --mdxOrderedList: #14984b;
   --mdxOrderedList: black;
   --mdxLink: #14984b;
+  --mdxLinkHover: #1d9951;
   --tocPowerBar: #1fc062;
   --tocGlow: #ff8649;
   --tocGlow: #70c071;

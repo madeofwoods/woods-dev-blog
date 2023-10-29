@@ -161,17 +161,19 @@
 .linkContainer {
   position: relative;
   width: max-content;
+  font-weight: 700;
 }
 
 .linkLine {
-  display: none;
+  /* display: none; */
   position: absolute;
   bottom: -2px;
+  left: 0%;
   background-color: var(--mdxLink);
   width: 0%;
   height: 2px;
-  transition: 1s;
-  animation: line 0.1s linear reverse;
+  transition: width 1s;
+  /* animation: line 0.1s linear reverse; */
 }
 
 @keyframes line {
@@ -185,6 +187,10 @@
 }
 
 .linkContainer:hover .linkLine {
-  display: block;
+  /* display: block; */
   animation: line 0.3s linear forwards;
+}
+
+.linkContainer:hover .link {
+  color: var(--mdxLinkHover);
 }
