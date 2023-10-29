@@ -31,7 +31,10 @@ a {
   --bg: #060b17;
   --text: #ddd;
   --softBg: #1f273a;
+
   --softText: #a6a6a6;
+  --softText: #b6b6b6;
+
   --titleText: #c4c4c4;
   --contrast: rgb(177, 143, 212);
   --invert: 1;
@@ -47,12 +50,26 @@ a {
   --glassLinksHover: 0 8px 30px 0 rgba(254, 50, 230, 0.17);
   --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
   --mixBlend: color-dodge;
-  --mdxTitle: #9191d0;
+
+  --mdxTitle: #ffd1e8;
+  --mdxTitle: #5454f4;
+  --mdxTitle: #ec73b0;
+
   --mdxH1: #b27dd9;
-  --mdxStrong: #b8b8ed;
-  --mdxTagBg: #3f3a4c;
+  --mdxH1: #f397c5;
+  --mdxH1: #9071e4;
+  --mdxH1: #6666f5;
+
+  --mdxStrong: #e7e7f4;
+  --mdxStrong: #9595ee;
+
+  --mdxTagBg: #3b3842;
   --mdxTag: #ea8eec;
+  --mdxTag: #9c9cef;
+
+  --mdxOrderedList: #cfa5ea;
   --mdxOrderedList: #ec73b0;
+
   --tocPowerBar: hotpink;
   --tocGlow: #d395e1;
   --tocActiveText: #fc89c3;
@@ -60,7 +77,10 @@ a {
   --tocHoverActiveText: #fc89c3;
   --tocHoverText: #ddd;
   --mdxImageBlur: linear-gradient(to right, rgba(144, 142, 225, 0.54), rgba(186, 137, 231, 0.581));
+
   --codeBg: #362f3f;
+  --codeBg: #2e293b;
+
   --codeBorder: #603bf6;
   --codeHighlight: rgba(68, 65, 113, 0.5);
 }

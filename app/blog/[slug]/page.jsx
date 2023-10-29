@@ -1,4 +1,4 @@
-import { getBlog, getHeadings } from "@/utils/blogHelpers";
+import { dateFormat, getBlog, getHeadings } from "@/utils/blogHelpers";
 import styles from "./blog.module.css";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { components } from "@/components/MDX/CustomComponents";
@@ -23,7 +23,7 @@ const BlogPage = async ({ params }) => {
       <div className={styles.subtitle}>
         <span>{dictionary[data.frontMatter.topic].title || ""}</span>
         {" // "}
-        <span>{data.frontMatter.dateString}</span>
+        <span>{dateFormat(data.frontMatter.dateString)}</span>
       </div>
       <TableOfContents headings={headings} ids={ids} />
       <div className={styles.blogWrapper}>

@@ -68,3 +68,8 @@ export const filterBlogsByYear = (blogs, year) => {
 export const getYearsArray = (blogs) => [
   ...new Set(blogs.map((item) => item.frontMatter.dateString.slice(0, 4))),
 ];
+
+export const dateFormat = (date) => {
+  const dateString = new Date(date);
+  return dateString.toUTCString().slice(4, 16);
+};
