@@ -75,6 +75,17 @@ const Img = ({ alt, src, w, h }) => {
   );
 };
 
+const Anchor = ({ href, children }) => {
+  return (
+    <span className={styles.linkContainer}>
+      <a className={styles.link} href={href} target="_blank">
+        {children}
+      </a>
+      <div className={styles.linkLine}></div>
+    </span>
+  );
+};
+
 export const components = {
   h1: H1,
   p: Para,
@@ -87,4 +98,5 @@ export const components = {
   List: List,
   ListItem: ListItem,
   Img: Img,
+  a: Anchor,
 };

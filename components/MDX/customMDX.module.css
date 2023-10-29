@@ -103,6 +103,10 @@
   align-items: baseline;
 }
 
+.listItem strong {
+  color: var(--mdxStrong);
+}
+
 .listItem::before {
   content: counter(list-number) ". ";
   padding-right: 20px;
@@ -148,4 +152,39 @@
   border-radius: 15px;
   /* border: 1px solid rgba(131, 131, 131, 0.5); */
   z-index: 1;
+}
+
+.link {
+  color: var(--mdxLink);
+}
+
+.linkContainer {
+  position: relative;
+  width: max-content;
+}
+
+.linkLine {
+  display: none;
+  position: absolute;
+  bottom: -2px;
+  background-color: var(--mdxLink);
+  width: 0%;
+  height: 2px;
+  transition: 1s;
+  animation: line 0.1s linear reverse;
+}
+
+@keyframes line {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.linkContainer:hover .linkLine {
+  display: block;
+  animation: line 0.3s linear forwards;
 }

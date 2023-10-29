@@ -1,0 +1,174 @@
+---
+title: "Building a blog with Next.js and MDX"
+dateString: "2023-10-28"
+topic: "react"
+---
+
+# Why I Am Starting a Blog
+
+After a month long hiatus in **Tutorial Hell**, I decided I needed to focus on building again.
+Striking the balance between building and learning is an important part of the early phase of learning frontend development.
+A blog, while by no means a unique idea, was the perfect solution to various problems I was facing.
+
+- A blog ecourages me not only to code, but to consider my intentions and justify my choices.
+- It requires me to understand the reasons why things work, and to explain them succinctly.
+- It gives a voice to the projects I am building each week, as I continue to learn frontend development.
+- Most excitingly, it has given me an excuse to learn Next.js and MDX.
+
+# Why I chose Next
+
+Since the release of **Next.js 13** in October 2022, I was really keen to build a project with this framework. A blog is an excellent candidate for a Next project.
+The main advantage of Next 13 for a blog is Server-side Redering (**SSR**). Unlike with a standard React site, which renders pages on the client-side, a Next site will create each page ahead of time on the server-side and send the rendered page to the client.
+This is an excellent choice for static sites, like a blog.
+
+Another benefit is Search Engine Opimization (**SEO**). When your site uses SSR, a search engine can access all the information on your site at the point of crawling.
+This is not the case with Client-side Rendering (**CSR**), where the information is injected into the **DOM** dynamically.
+
+# Why I chose MDX
+
+It was when I learnt about MDX that things started to get exciting.
+
+MDX is effectively a hybrid of Markdown and JSX, allowing you to use custom React components in your Markdown.
+
+Until building this blog, my only experience with Markdown was in the writing of <Tag>README.md</Tag> files.
+Markdown is easy choice making text-based documents, without the need for HTML tags. The addition of JSX components makes MDX a very powerful language.
+
+This is a code snippet from this blog post:
+
+```md:MDX
+
+Here is MDX in action.
+I can make things **bold**.
+I can use Custom Components like this Tag component: <Tag>filename.jsx</Tag>.
+
+I can also list some use cases for MDX:
+
+- this blog
+- future blogs
+
+```
+
+And here it is on the page:
+
+Here is MDX in action.
+
+I can make things **bold**.
+
+I can use Custom Components like this Tag component: <Tag>filename.js</Tag>.
+
+I can also list some use cases for MDX:
+
+- this blog
+- future blogs
+
+Using MDX with Custom Components, I am able to build and style my blog freely, without the need to write a JSX file for each post.
+Writing component-based code is at the heart of what I enjoy about React, so MDX is the natural choice for this site.
+
+_Potentially Insert an info box here -- this is overengineering to the extreme._
+
+# Why I chose next-mdx-remote
+
+There were three packages for incorporating MDX into a Next.js project that I considered:
+
+<List>
+  <Item>
+    Vercel's official package:&nbsp;<Tag>@next/mdx</Tag>
+  </Item>
+  <Item>
+    Hashicorp's:&nbsp;<Tag>next-mdx-remote</Tag>
+  </Item>
+  <Item>
+    Kent C Dodds's:&nbsp;<Tag>next-mdx-bundler</Tag>
+  </Item>
+</List>
+
+To begin with, it seemed that <Tag>@next/mdx</Tag> offered everything that I needed.
+Since it is made and maintained by Vercel (the creators of Next.js), it seemed like a natural fit.
+However, it doesn't support frontmatter, which I was quite keen to implement.
+It also doesn't allow you to store and fetch your MDX files from a database, which felt restrictive.
+
+Both <Tag>next-mdx-remote</Tag> and <Tag>next-mdx-bundler</Tag> support frontmatter and remote data loading.
+In the end, I was able to find a wealth of information on how to use <Tag>next-mdx-remote</Tag>,
+and the Custom Component implementation felt natural to me. So, that is the option I chose.
+
+# Frontmatter
+
+Before I go on, it would be useful to talk about frontmatter.
+Frontmatter is a Markdown addon that allows you to define key-value pairs at the top of the document.
+This is useful for storing metadata for your blog post, within the same file.
+_Frontmatter must be placed at the top of the document._
+
+```md:MDX
+---
+title: "Building a blog with Next.js and MDX"
+dateString: "2023-10-28"
+topic: "react"
+isPublished: true
+---
+
+-> Main content begins here <-
+```
+
+To parse the frontmatter, I used a package called [gray-matter](https://www.npmjs.com/package/gray-matter).
+
+```js:JS
+import matter from "gray-matter";
+
+// blog variable here is the MDX file from above, for example
+
+const getBlog = (blog) => {
+    const {data:frontmatter, content} = matter(blog)
+
+    return {
+        frontmatter,
+        content
+        }
+}
+
+```
+
+This separates the frontmatter from the main body of the blog.
+Using object destructuring, we have the variable <Tag>content</Tag> which contains a content of the blog, and the variable <Tag>frontmatter</Tag>, which contains the key-value pairs provided as an object.
+
+For context this is the object returned from <Tag>matter(blog)</Tag>, before destructuring:
+
+```js
+{
+  content: '\nMain content begins here...\n',
+  data: {
+    title: 'Building a blog with Next.js and MDX',
+    dateString: '2023-10-28',
+    topic: 'react',
+    isPublished: true
+  },
+  isEmpty: false,
+  excerpt: '',
+  orig: Buffer {}
+}
+```
+
+# Working with next-mdx-remote
+
+I installed the package in the terminal:
+
+```bash
+npm install next-mdx-remote
+```
+
+I then used it to read the MDX:
+
+```jsx:jsx
+
+import { MDXRemote } from "next-mdx-remote/rsc";
+
+const Blog = ({blog}) => {
+    const {content, frontmatter} = getBlog(blog)
+    return (
+        <div>
+            <h1></h1>
+            <MDXRemote source={content} />
+        </div>
+    )
+}
+
+```
