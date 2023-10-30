@@ -7,7 +7,7 @@
 .para {
   font-size: 17px;
   line-height: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: var(--softText);
 }
 
@@ -195,8 +195,8 @@
 }
 
 .noteContainer {
-  background-color: rgb(240, 210, 199);
-  color: white;
+  background-color: var(--mdxNoteBg);
+  color: var(--mdxNoteText);
   width: max-content;
   margin-left: auto;
   margin-right: auto;
@@ -209,11 +209,11 @@
   border-radius: 8px;
   font-size: 13px;
   line-height: 30px;
-  border-top: 3px solid rgb(245, 100, 64);
+  border-top: 3px solid var(--mdxNoteBorder);
 }
 
 .note p {
-  color: var(--text);
+  color: var(--mdxNoteText);
   font-size: 13px;
   line-height: 22px;
   padding: none;
@@ -235,11 +235,14 @@
 }
 
 .noteLogo {
-  background-color: rgb(245, 100, 64);
+  background-color: var(--mdxNoteBorder);
   width: 24px;
   height: 24px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--mdxNoteText);
 }

@@ -71,8 +71,13 @@ a {
   --mdxOrderedList: #cfa5ea;
   --mdxOrderedList: #ec73b0;
 
-  --mdxLink: #eb9cf4;
-  --mdxLinkHover: #f0a9f8;
+  --mdxLink: #e47af0;
+  --mdxLinkHover: #e47af0;
+
+  --mdxNoteBg: #f0cff0;
+  --mdxNoteBorder: hotpink;
+  --mdxNoteText: black;
+  --mdxImageBlur: linear-gradient(to right, rgba(144, 142, 225, 0.54), rgba(186, 137, 231, 0.581));
 
   --tocPowerBar: hotpink;
   --tocGlow: #d395e1;
@@ -80,7 +85,6 @@ a {
   --tocHover: #272a42;
   --tocHoverActiveText: #fc89c3;
   --tocHoverText: #ddd;
-  --mdxImageBlur: linear-gradient(to right, rgba(144, 142, 225, 0.54), rgba(186, 137, 231, 0.581));
 
   --codeBg: #362f3f;
   --codeBg: #2e293b;
@@ -127,6 +131,10 @@ a {
 
   --mdxLink: #14773d;
   --mdxLinkHover: #14773d;
+
+  --mdxNoteBg: #f0d2c7;
+  --mdxNoteBorder: #f56440;
+  --mdxNoteText: black;
 
   --tocPowerBar: #1fc062;
   --tocGlow: #ff8649;
@@ -372,7 +380,7 @@ pre[class*="language-"] {
 }
 
 .rehype-code-title {
-  margin-top: 20px;
+  margin-top: 40px;
   background-color: var(--codeBg);
   text-transform: uppercase;
   color: rgb(255, 255, 255);
