@@ -6,14 +6,14 @@ topic: "react"
 
 # Why I Am Starting a Blog
 
-After a month long hiatus in **Tutorial Hell**, I decided I needed to focus on building again.
-Striking the balance between building and learning is an important part of the early phase of learning frontend development.
+After a month-long hiatus in **Tutorial Hell**, I decided I needed to focus on building again.
+Striking the balance between building and learning is an important element of becoming a frontend developer.
 A blog, while by no means a unique idea, was the perfect solution to various problems I was facing.
 
 - A blog ecourages me not only to code, but to consider my intentions and justify my choices.
 - It requires me to understand the reasons why things work, and to explain them succinctly.
-- It gives a voice to the projects I am building each week, as I continue to learn frontend development.
-- Most excitingly, it has given me an excuse to learn Next.js and MDX.
+- It gives a voice to the projects I am building each week, as I continue to learn.
+- Pertinently, it has given me an excuse to learn Next.js and MDX.
 
 # Why I chose Next
 
@@ -31,15 +31,18 @@ It was when I learnt about MDX that things started to get exciting.
 MDX is effectively a hybrid of Markdown and JSX, allowing you to use custom React components in your Markdown.
 
 Until building this blog, my only experience with Markdown was in the writing of <Tag>README.md</Tag> files.
-Markdown is easy choice making text-based documents, without the need for HTML tags. The addition of JSX components makes MDX a very powerful language.
+Markdown is good choice when making text-based pages, without the need for HTML tags. It allows you to write using plain text syntax and convert it to structurally valid HTML.
+The addition of JSX components makes MDX a very powerful language.
 
-This is a code snippet from this blog post:
+This is a code snippet from a hypothetical post:
 
 ```md:MDX
 
 Here is MDX in action.
+
 I can make things **bold**.
-I can use Custom Components like this Tag component: <Tag>filename.jsx</Tag>.
+
+I can use Custom Components like this Tag component: <Tag>Filename.jsx</Tag>.
 
 I can also list some use cases for MDX:
 
@@ -54,14 +57,14 @@ Here is MDX in action.
 
 I can make things **bold**.
 
-I can use Custom Components like this Tag component: <Tag>filename.js</Tag>.
+I can use Custom Components like this Tag component: <Tag>Filename.jsx</Tag>.
 
 I can also list some use cases for MDX:
 
 - this blog
 - future blogs
 
-Using MDX with Custom Components, I am able to build and style my blog freely, without the need to write a JSX file for each post.
+Using MDX with Custom Components, I am able to build and style my blog freely, without the need to write each blog post as a unique JSX file.
 Writing component-based code is at the heart of what I enjoy about React, so MDX is the natural choice for this site.
 
 _Potentially Insert an info box here -- this is overengineering to the extreme._
@@ -89,13 +92,12 @@ It also doesn't allow you to store and fetch your MDX files from a database, whi
 
 Both <Tag>next-mdx-remote</Tag> and <Tag>next-mdx-bundler</Tag> support frontmatter and remote data loading.
 In the end, I was able to find a wealth of information on how to use <Tag>next-mdx-remote</Tag>,
-and the Custom Component implementation felt natural to me. So, that is the option I chose.
+and the Custom Component implementation felt natural to me. So, that is the option I went for.
 
 # Frontmatter
 
-Before I go on, it would be useful to talk about frontmatter.
-Frontmatter is a Markdown addon that allows you to define key-value pairs at the top of the document.
-This is useful for storing metadata for your blog post, within the same file.
+Frontmatter is a Markdown add-on that allows you to define key-value pairs at the top of the document.
+This is useful for storing _metadata_ for your blog post, within the same file.
 _Frontmatter must be placed at the top of the document._
 
 ```md:MDX
@@ -106,7 +108,7 @@ topic: "react"
 isPublished: true
 ---
 
--> Main content begins here <-
+Main content begins here...
 ```
 
 To parse the frontmatter, I used a package called [gray-matter](https://www.npmjs.com/package/gray-matter).
@@ -114,10 +116,11 @@ To parse the frontmatter, I used a package called [gray-matter](https://www.npmj
 ```js:JS
 import matter from "gray-matter";
 
-// blog variable here is the MDX file from above, for example
+// blog variable here would be the MDX file from above, for example
 
 const getBlog = (blog) => {
-    const {data:frontmatter, content} = matter(blog)
+
+    const { data: frontmatter, content } = matter(blog)
 
     return {
         frontmatter,
@@ -127,10 +130,7 @@ const getBlog = (blog) => {
 
 ```
 
-This separates the frontmatter from the main body of the blog.
-Using object destructuring, we have the variable <Tag>content</Tag> which contains a content of the blog, and the variable <Tag>frontmatter</Tag>, which contains the key-value pairs provided as an object.
-
-For context this is the object returned from <Tag>matter(blog)</Tag>, before destructuring:
+For context, this is the object returned from <Tag>matter(blog)</Tag>, before destructuring:
 
 ```js
 {
@@ -146,6 +146,9 @@ For context this is the object returned from <Tag>matter(blog)</Tag>, before des
   orig: Buffer {}
 }
 ```
+
+Using <Tag>gray-matter</Tag> allows me to separate the frontmatter from the main body of the blog.
+Using object destructuring, we have the variable <Tag>content</Tag> which contains the main content of the blog, and the variable <Tag>frontmatter</Tag>, which is an object containing the provided key-value pairs.
 
 # Working with next-mdx-remote
 
@@ -165,7 +168,7 @@ const Blog = ({blog}) => {
     const {content, frontmatter} = getBlog(blog)
     return (
         <div>
-            <h1></h1>
+            <h1>{frontmatter.title}</h1>
             <MDXRemote source={content} />
         </div>
     )

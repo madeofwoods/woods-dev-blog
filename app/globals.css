@@ -113,15 +113,19 @@ a {
   --mixBlend: luminosity;
   --mdxTitle: #09572a;
   --mdxH1: #30304a;
-  --mdxStrong: #10743a;
-  --mdxTagBg: #434444;
-  --mdxTag: #50de8b;
-  --mdxTagBg: #14703b;
-  --mdxTag: white;
+  --mdxStrong: #074722;
+
+  --mdxTagBg: #454646;
+  --mdxTag: #2bd873;
+  /* --mdxTagBg: #14703b;
+  --mdxTag: white; */
+
   --mdxOrderedList: #14984b;
   --mdxOrderedList: black;
-  --mdxLink: #14984b;
-  --mdxLinkHover: #1d9951;
+
+  --mdxLink: #1ea656;
+  --mdxLinkHover: #1ea656;
+
   --tocPowerBar: #1fc062;
   --tocGlow: #ff8649;
   --tocGlow: #70c071;
