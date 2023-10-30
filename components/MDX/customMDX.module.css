@@ -187,10 +187,59 @@
 }
 
 .linkContainer:hover .linkLine {
-  /* display: block; */
   animation: line 0.3s linear forwards;
 }
 
 .linkContainer:hover .link {
   color: var(--mdxLinkHover);
+}
+
+.noteContainer {
+  background-color: rgb(240, 210, 199);
+  color: white;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  min-width: 500px;
+  max-width: 500px;
+  padding: 15px 30px 15px 40px;
+  position: relative;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 30px;
+  border-top: 3px solid rgb(245, 100, 64);
+}
+
+.note p {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 22px;
+  padding: none;
+  margin-bottom: 0px;
+}
+
+.noteCutout {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 100%;
+  top: 0%;
+  transform: translate(-50%, -50%);
+}
+
+.noteLogo {
+  background-color: rgb(245, 100, 64);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

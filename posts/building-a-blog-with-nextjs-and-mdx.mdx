@@ -136,7 +136,7 @@ For context, this is the object returned from <Tag>matter(blog)</Tag>, before de
 {
   content: '\nMain content begins here...\n',
   data: {
-    title: 'Building a blog with Next.js and MDX',
+    title: 'This is a Title',
     dateString: '2023-10-28',
     topic: 'react',
     isPublished: true
@@ -158,14 +158,16 @@ I installed the package in the terminal:
 npm install next-mdx-remote
 ```
 
-I then used it to read the MDX:
+I then imported MDXRemote, which I imported with the <Tag>/rsc</Tag> suffix, because this is in a server component.
+I then used the <Tag>getBlog()</Tag> function from before to access my frontmatter, and blog content.
 
 ```jsx:jsx
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 
-const Blog = ({blog}) => {
-    const {content, frontmatter} = getBlog(blog)
+const Blog = ({ blog }) => {
+    const { content, frontmatter } = getBlog(blog)
+
     return (
         <div>
             <h1>{frontmatter.title}</h1>
@@ -175,3 +177,89 @@ const Blog = ({blog}) => {
 }
 
 ```
+
+<Note>
+  If you are using an earlier version of Next.js, you have to serialize the content. Serialization is not
+  necessary with RSC. For more info, check out the next-mdx-remote
+  [documentation](https://github.com/hashicorp/next-mdx-remote#react-server-components-rsc--nextjs-app-directory-support).
+</Note>
+
+The next step is to prepare the custom components to be passed to MDXRemote. I can create custom components for simple HTML tags like <Tag>`<h1>`</Tag> and <Tag>`<strong>`</Tag>.
+
+```jsx:jsx
+
+  import styles from "./customMDX.module.css";
+  import { Source_Code_Pro } from "next/font/google";
+
+  const H1 = ({ children }) => {
+    return (
+      <h1 style={{ fontSize: "32px", color: "#09572a" }}>
+        {children}
+      </h1>
+    );
+  };
+
+  const Strong = ({ children }) => {
+    return (
+      <strong style={{ color: "#074722" }}>
+        {children}
+      </strong>
+    );
+  };
+
+  const Tag = ({ children }) => {
+    return (
+      <span className={`${styles.tag} ${sourceCodePro.className}`}>
+        {children}
+      </span>
+    );
+  };
+
+```
+
+Once all the custom components have been prepared, they are collected together in an object.
+The <Tag>key</Tag> is the HTML tag, or custom tag to be used in the MDX, and the <Tag>value</Tag> is the JSX component.
+
+```jsx:jsx
+  export const components = {
+    h1: H1,
+    strong: Strong,
+    Tag: Tag,
+  };
+```
+
+This component object can then be passed to the MDXRemote component as a prop.
+
+```diff:JSX showlinenumbers
+import { MDXRemote } from "next-mdx-remote/rsc";
++ import { components } from "@/components/MDX/CustomComponents";
+
+const Blog = ({ blog }) => {
+    const { content, frontmatter } = getBlog(blog)
+
+    return (
+        <div>
+            <h1>{frontmatter.title}</h1>
+-            <MDXRemote source={content} />
++            <MDXRemote source={content} components={components} />
+        </div>
+    )
+}
+
+```
+
+With this set up, I was able to start writing my blog posts in MDX.
+From here, I can continue to create custom components, and add them to the <Tag>components</Tag> object.
+
+# Conclusion
+
+This covers the fundamentals how I wired up my blog. There are, inevitably, additional features that I built or incorporated in the blog.
+For example:
+
+- how I implemented code snippets in MDX
+- how I built my Table of Contents component
+
+I will probably write separate posts for these features.
+For now, there is enough information here for anyone interested to get started with an MDX blog in React.
+
+OVERENGINEERED

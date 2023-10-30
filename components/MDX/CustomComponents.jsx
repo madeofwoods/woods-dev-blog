@@ -33,17 +33,6 @@ const UL = ({ children }) => {
   return <ul className={styles.ul}>{children}</ul>;
 };
 
-// const Item = ({ children }) => {
-//   return (
-//     <li className={styles.li}>
-//       <span>
-//         <Image className={styles.icon} src="/img/blackList.png" alt="" width={18} height={18} />
-//       </span>
-//       <span>{children}</span>
-//     </li>
-//   );
-// };
-
 const OL = ({ children }) => {
   return <ol className={styles.ordered}>{children}</ol>;
 };
@@ -63,14 +52,8 @@ const ListItem = ({ children }) => {
 const Img = ({ alt, src, w, h }) => {
   return (
     <div className={styles.imageContainer}>
-      <div className={styles.blur} style={{ width: w ? w : 700, height: h ? h : 400 }}></div>
-      <Image
-        className={styles.img}
-        src={src}
-        alt={alt ? alt : " "}
-        width={w ? w : 700}
-        height={h ? h : 400}
-      />
+      <div className={styles.blur} style={{ width: w || 700, height: h || 400 }}></div>
+      <Image className={styles.img} src={src} alt={alt || " "} width={w || 700} height={h || 400} />
     </div>
   );
 };
@@ -86,6 +69,18 @@ const Anchor = ({ href, children }) => {
   );
 };
 
+const Note = ({ children }) => {
+  return (
+    <div className={styles.noteContainer}>
+      <div className={styles.noteCutout}>
+        <div className={styles.noteLogo}>!</div>
+      </div>
+
+      <div className={styles.note}>{children}</div>
+    </div>
+  );
+};
+
 export const components = {
   h1: H1,
   p: Para,
@@ -93,10 +88,10 @@ export const components = {
   Tag: Tag,
   ul: UL,
   li: (props) => <Item {...props} />,
-  OL: OL,
-  Item: OrderedItem,
   List: List,
+  Item: ListItem,
   ListItem: ListItem,
   Img: Img,
   a: Anchor,
+  Note: Note,
 };

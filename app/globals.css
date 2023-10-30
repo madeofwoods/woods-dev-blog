@@ -112,8 +112,10 @@ a {
   --glassTopicsShadow: 0 15px 32px 0 rgba(61, 61, 61, 0.423);
   --mixBlend: luminosity;
   --mdxTitle: #09572a;
-  --mdxH1: #30304a;
+  --mdxH1: #09572a;
+
   --mdxStrong: #074722;
+  --mdxStrong: #000000;
 
   --mdxTagBg: #454646;
   --mdxTag: #2bd873;
@@ -123,8 +125,8 @@ a {
   --mdxOrderedList: #14984b;
   --mdxOrderedList: black;
 
-  --mdxLink: #1ea656;
-  --mdxLinkHover: #1ea656;
+  --mdxLink: #14773d;
+  --mdxLinkHover: #14773d;
 
   --tocPowerBar: #1fc062;
   --tocGlow: #ff8649;
