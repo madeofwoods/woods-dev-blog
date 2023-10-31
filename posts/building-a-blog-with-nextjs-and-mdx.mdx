@@ -22,8 +22,8 @@ Since the release of **Next.js 13** in October 2022, I was really keen to build 
 The main advantage of Next 13 for a blog is Server-side Redering (**SSR**). Unlike with a standard React site, which renders pages on the client-side, a Next site will create each page ahead of time on the server-side and send the rendered page to the client.
 This is an excellent choice for static sites, like a blog.
 
-Another benefit is Search Engine Opimization (**SEO**). When your site uses SSR, a search engine can access all the information on your site at the point of crawling.
-This is not the case with Client-side Rendering (**CSR**), where the information is injected into the **DOM** dynamically.
+A beneficial consequence of SSR is Search Engine Opimization (**SEO**). When your site uses SSR, a search engine can access all the information on your site at the point of crawling.
+This is not the case with client-side Rendering (**CSR**), where the information is injected into the **DOM** dynamically.
 
 # Why I chose MDX
 
@@ -65,7 +65,7 @@ I can also list some use cases for MDX:
 - this blog
 - future blogs
 
-Using MDX with Custom Components, I am able to build and style my blog freely, without the need to write each blog post as a unique JSX file.
+Using MDX with custom components, I am able to build and style my blog freely, without the need to write each blog post as a unique JSX file.
 Writing component-based code is at the heart of what I enjoy about React, so MDX is the natural choice for this site.
 
 # Why I chose next-mdx-remote
@@ -91,7 +91,7 @@ It also doesn't allow you to store and fetch your MDX files from a database, whi
 
 Both <Tag>next-mdx-remote</Tag> and <Tag>next-mdx-bundler</Tag> support frontmatter and remote data loading.
 In the end, I was able to find a wealth of information on how to use <Tag>next-mdx-remote</Tag>,
-and the Custom Component implementation felt natural to me. So, that is the option I went for.
+and the custom component implementation felt natural to me. So, that is the option I went for.
 
 # Frontmatter
 
@@ -186,7 +186,9 @@ const Blog = ({ blog }) => {
   [documentation](https://github.com/hashicorp/next-mdx-remote#react-server-components-rsc--nextjs-app-directory-support).
 </Note>
 
-The next step is to prepare the custom components to be passed to MDXRemote. I can create custom components for simple HTML tags like <Tag>`<h1>`</Tag> and <Tag>`<strong>`</Tag>.
+The next step is to prepare the custom components to be passed to MDXRemote.
+I can create custom components for simple HTML tags like <Tag>`<h1>`</Tag> and <Tag>`<strong>`</Tag>.
+As well as additional custom components for unique JSX elements, like the info box above or this <Tag>`<Tag>`</Tag> component.
 
 ```jsx:jsx
 
@@ -232,7 +234,7 @@ The <Tag>key</Tag> is the HTML tag, or custom tag to be used in the MDX, and the
   };
 ```
 
-This component object can then be passed to the MDXRemote component as a prop.
+This <Tag>components</Tag> object can then be passed to the MDXRemote component as a prop.
 
 ```diff:JSX showlinenumbers
 import { MDXRemote } from "next-mdx-remote/rsc";
