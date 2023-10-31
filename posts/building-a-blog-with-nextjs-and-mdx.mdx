@@ -2,6 +2,7 @@
 title: "Building a blog with Next.js and MDX"
 dateString: "2023-10-28"
 topic: "react"
+isPublished: true
 ---
 
 # Why I Am Starting a Blog
@@ -191,6 +192,8 @@ The next step is to prepare the custom components to be passed to MDXRemote. I c
 
   import styles from "./customMDX.module.css";
   import { Source_Code_Pro } from "next/font/google";
+
+  const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
   const H1 = ({ children }) => {
     return (
