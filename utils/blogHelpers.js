@@ -8,14 +8,11 @@ export const getAllBlogs = () => {
   const posts = files.map((filename) => {
     const mdxWithMeta = fs.readFileSync(path.join(process.cwd(), "posts", filename));
     const { data: frontMatter } = matter(mdxWithMeta);
-    console.log(frontMatter);
     return {
       frontMatter,
       slug: filename.split(".")[0],
     };
   });
-
-  console.log(posts);
 
   return posts;
 };
@@ -30,11 +27,7 @@ export const getFilteredBlogs = (topic) => {
 export const getBlog = async (slug) => {
   const source = fs.readFileSync(path.join(process.cwd(), "posts", slug + ".mdx"), "utf-8");
 
-  const { data: frontMatter, content } = await matter(source);
-  const data = matter(source);
-  console.log(data);
-  console.log("frontMatter", frontMatter);
-  console.log("content", content);
+  const { data: frontMatter, content } = matter(source);
 
   return {
     content,
@@ -59,10 +52,6 @@ export const getHeadings = (data) => {
 };
 
 export const sortBlogsByDate = (blogs) => {
-  console.log(blogs);
-
-  // const publishedBlogs = blogs.map((blog) => blog.frontmatter);
-  // console.log(publishedBlogs);
   const sortedBlogs = blogs.sort((a, b) => {
     return new Date(b.frontMatter.dateString).getTime() - new Date(a.frontMatter.dateString).getTime();
   });
@@ -71,7 +60,7 @@ export const sortBlogsByDate = (blogs) => {
 };
 
 export const filterBlogsByYear = (blogs, year) => {
-  return blogs.filter((blog) => String(blog.frontMatter.dateString).slice(0, 4) == String(year));
+  return blogs.filter((blog) => blog.frontMatter.dateString.slice(0, 4) == year);
 };
 
 export const getPublishedBlogs = (blogs) => {
@@ -79,9 +68,9 @@ export const getPublishedBlogs = (blogs) => {
 };
 
 export const getYearsArray = (blogs) => {
-  // const publishedBlogs = getPublishedBlogs(blogs);
+  const publishedBlogs = getPublishedBlogs(blogs);
 
-  return [...new Set(blogs.map((item) => String(item.frontMatter.dateString).slice(0, 4)))];
+  return [...new Set(publishedBlogs.map((item) => String(item.frontMatter.dateString).slice(0, 4)))];
 };
 
 export const dateFormat = (date) => {
