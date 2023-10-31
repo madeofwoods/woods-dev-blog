@@ -9,14 +9,15 @@ import {
 import BlogLinks from "../BlogLinks/BlogLinks";
 
 export const generateStaticParams = () => {
-  const sortedBlogs = getAllBlogs();
-  return { blogs: sortedBlogs };
+  const blogs = getAllBlogs();
+  console.log(blogs);
+  return { blogs: blogs };
 };
 const AllBlogLinks = async ({ blogs }) => {
   const sortedBlogs = await sortBlogsByDate(blogs);
   console.log(sortedBlogs);
 
-  const publishedBlogs = await getPublishedBlogs(sortedBlogs);
+  // const publishedBlogs = await getPublishedBlogs(sortedBlogs);
   const years = getYearsArray(blogs);
 
   return (
@@ -24,7 +25,7 @@ const AllBlogLinks = async ({ blogs }) => {
       {years.map((year) => (
         <div key={year} className={styles.yearContainer}>
           <div className={styles.year}>{year}</div>
-          <BlogLinks blogs={filterBlogsByYear(publishedBlogs, year)} />
+          <BlogLinks blogs={filterBlogsByYear(sortedBlogs, year)} />
         </div>
       ))}
     </div>
