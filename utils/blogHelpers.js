@@ -79,9 +79,9 @@ export const getPublishedBlogs = (blogs) => {
 };
 
 export const getYearsArray = (blogs) => {
-  const publishedBlogs = getPublishedBlogs(blogs);
+  // const publishedBlogs = getPublishedBlogs(blogs);
 
-  return [...new Set(publishedBlogs.map((item) => String(item.frontMatter.dateString).slice(0, 4)))];
+  return [...new Set(blogs.map((item) => String(item.frontMatter.dateString).slice(0, 4)))];
 };
 
 export const dateFormat = (date) => {
