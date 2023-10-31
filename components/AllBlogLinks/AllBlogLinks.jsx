@@ -1,12 +1,22 @@
 import styles from "./allBlogLinks.module.css";
-import { filterBlogsByYear, getPublishedBlogs, getYearsArray, sortBlogsByDate } from "@/utils/blogHelpers";
+import {
+  filterBlogsByYear,
+  getAllBlogs,
+  getPublishedBlogs,
+  getYearsArray,
+  sortBlogsByDate,
+} from "@/utils/blogHelpers";
 import BlogLinks from "../BlogLinks/BlogLinks";
 
-const AllBlogLinks = ({ blogs }) => {
-  const sortedBlogs = sortBlogsByDate(blogs);
+export const generateStaticParams = () => {
+  const sortedBlogs = getAllBlogs();
+  return { blogs: sortedBlogs };
+};
+const AllBlogLinks = async ({ blogs }) => {
+  const sortedBlogs = await sortBlogsByDate(blogs);
   console.log(sortedBlogs);
 
-  const publishedBlogs = getPublishedBlogs(sortedBlogs);
+  const publishedBlogs = await getPublishedBlogs(sortedBlogs);
   const years = getYearsArray(blogs);
 
   return (

@@ -1,4 +1,4 @@
-import { dateFormat, getBlog, getHeadings } from "@/utils/blogHelpers";
+import { dateFormat, getAllBlogs, getBlog, getHeadings } from "@/utils/blogHelpers";
 import styles from "./blog.module.css";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { components } from "@/components/MDX/CustomComponents";
@@ -13,8 +13,16 @@ const mdxOptions = {
   },
 };
 
+export const generateStaticParams = async () => {
+  const posts = getAllBlogs();
+  const params = posts.map((post) => ({ slug: post.slug }));
+  return [params];
+};
+
 const BlogPage = async ({ params }) => {
+  console.log("params", params);
   const data = await getBlog(params.slug);
+  console.log(data);
   const { headings, ids } = getHeadings(data.content);
 
   return (

@@ -15,6 +15,8 @@ export const getAllBlogs = () => {
     };
   });
 
+  console.log(posts);
+
   return posts;
 };
 
@@ -28,7 +30,7 @@ export const getFilteredBlogs = (topic) => {
 export const getBlog = async (slug) => {
   const source = fs.readFileSync(path.join(process.cwd(), "posts", slug + ".mdx"), "utf-8");
 
-  const { data: frontMatter, content } = matter(source);
+  const { data: frontMatter, content } = await matter(source);
   const data = matter(source);
   console.log(data);
   console.log("frontMatter", frontMatter);
