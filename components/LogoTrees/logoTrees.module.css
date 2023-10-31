@@ -82,11 +82,11 @@
   animation-delay: 2.2s;
 }
 
-.container div:nth-child(7) .treeFade,
+/* .container div:nth-child(7) .treeFade, */
 .container div:nth-child(2) .letterFade {
   animation-delay: 2.4s;
 }
-.container div:nth-child(8) .treeFade,
+/* .container div:nth-child(8) .treeFade, */
 .container div:nth-child(3) .letterFade {
   animation-delay: 2.6s;
 }
@@ -103,13 +103,13 @@
   animation-delay: 3.2s;
 }
 
-.container div:nth-child(7) .letterFade {
+/* .container div:nth-child(7) .letterFade {
   animation-delay: 3.4s;
 }
 
 .container div:nth-child(8) .letterFade {
   animation-delay: 3.6s;
-}
+} */
 
 @keyframes treeFade {
   0% {

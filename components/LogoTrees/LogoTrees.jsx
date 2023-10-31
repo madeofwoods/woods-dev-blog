@@ -73,7 +73,7 @@ const LogoTrees = () => {
           height={27}
           alt=""
         />
-        <div className={`${styles.letter}  ${!isTree[4] && styles.letterFade}`}>F</div>
+        <div className={`${styles.letter}  ${!isTree[4] && styles.letterFade}`}>O</div>
       </div>
       <div className={styles.treeContainer} onMouseOver={() => setIsTree({ ...isTree, 5: false })}>
         <Image
@@ -83,9 +83,9 @@ const LogoTrees = () => {
           height={26}
           alt=""
         />
-        <div className={`${styles.letter}  ${!isTree[5] && styles.letterFade}`}>R</div>
+        <div className={`${styles.letter}  ${!isTree[5] && styles.letterFade}`}>F</div>
       </div>{" "}
-      <div className={styles.treeContainer} onMouseOver={() => setIsTree({ ...isTree, 6: false })}>
+      {/* <div className={styles.treeContainer} onMouseOver={() => setIsTree({ ...isTree, 6: false })}>
         <Image
           className={`${styles.trees} ${!isTree[6] && styles.treeFade}`}
           src="/trees/treeSeven.png"
@@ -104,7 +104,7 @@ const LogoTrees = () => {
           alt=""
         />
         <div className={`${styles.letter}  ${!isTree[7] && styles.letterFade}`}>M</div>
-      </div>{" "}
+      </div>{" "} */}
       <div className={styles.treeContainer} onMouseOver={() => setIsTree({ ...isTree, 8: false })}>
         <Image
           className={`${styles.trees} ${!isTree[8] && styles.treeFade}`}
