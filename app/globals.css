@@ -56,7 +56,7 @@ a {
   --mdxTitle: #5454f4;
   --mdxTitle: #ec73b0;
 
-  --mdxH1: #b27dd9;
+  --mdxH1: #c08ce6;
   --mdxH1: #f397c5;
   --mdxH1: #9071e4;
   --mdxH1: #6666f5;
@@ -168,39 +168,6 @@ body {
   z-index: 5;
   position: relative;
 }
-/* 
-@media screen and (max-width: 1536px) {
-  .wrapper {
-    max-width: 1366px;
-  }
-}
-
-@media screen and (max-width: 1366px) {
-  .wrapper {
-    max-width: 1024px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .wrapper {
-    max-width: 768px;
-    padding: 5px 40px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .wrapper {
-    max-width: 640px;
-    padding: 5px 40px;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .wrapper {
-    max-width: 475px;
-    padding: 5px 40px;
-  }
-} */
 
 /*
  * Laserwave Theme originally by Jared Jones for Visual Studio Code
