@@ -38,3 +38,18 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 320px) {
+}

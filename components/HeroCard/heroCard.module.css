@@ -29,6 +29,8 @@ exclusion, hue, saturation, color, and luminosity */
   z-index: 10;
   margin-top: 100px;
   margin-bottom: 150px;
+  margin-left: auto;
+  margin-right: auto;
   width: 900px;
   height: 400px;
   display: flex;
@@ -94,4 +96,42 @@ exclusion, hue, saturation, color, and luminosity */
   margin-top: 20px;
   font-size: 32px;
   color: var(--glassTextSoft);
+}
+
+/* 
+@media screen and (max-width: 1500px) {
+  .headings {
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    display: none;
+  }
+} */
+
+@media screen and (max-width: 1024px) {
+  .glass {
+    width: 80vw;
+    height: max-content;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .titleSpan {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 320px) {
 }

@@ -16,7 +16,8 @@
   align-items: center;
   justify-content: left;
   gap: 60px;
-  padding: 0px 30px;
+  width: 100%;
+  /* padding: 0px 30px; */
 }
 
 .linkDate {
@@ -28,6 +29,9 @@
 .linkTitle {
   text-align: left;
   font-size: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .glass {
@@ -60,4 +64,41 @@
   width: 100%;
   margin-left: 50px;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 90vw;
+  }
+  /* width: 700px; */
+  .glass {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .linkTitle {
+    width: 60%;
+    font-size: 16px;
+  }
+  .linkText {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .linkTitle {
+    white-space: unset;
+    font-size: 15px;
+  }
+  .linkDate {
+    font-size: 12px;
+    width: 50px;
+  }
+  .linkText {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
 }

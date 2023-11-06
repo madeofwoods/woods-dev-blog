@@ -75,3 +75,9 @@
 .game {
   background: linear-gradient(55deg, rgb(255, 0, 0), rgb(158, 39, 255), rgb(230, 2, 255));
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 80vw;
+  }
+}
