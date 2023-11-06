@@ -246,3 +246,34 @@
   font-size: 18px;
   color: var(--mdxNoteText);
 }
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .blogWrapper {
+    max-width: 700px;
+    width: 90vw;
+  }
+  .noteContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tag {
+    white-space: wrap;
+    font-size: 11px;
+  }
+
+  .h1 {
+    font-size: 24px;
+  }
+  .para {
+    font-size: 16px;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+}

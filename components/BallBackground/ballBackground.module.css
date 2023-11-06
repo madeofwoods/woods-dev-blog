@@ -173,3 +173,24 @@
     --myColor3: rgb(64, 67, 253);
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .ball {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.blur {
+  width: 360px;
+  height: 360px;
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 320px) {
+}
