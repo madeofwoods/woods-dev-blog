@@ -98,19 +98,6 @@ exclusion, hue, saturation, color, and luminosity */
   color: var(--glassTextSoft);
 }
 
-/* 
-@media screen and (max-width: 1500px) {
-  .headings {
-    max-width: 200px;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .container {
-    display: none;
-  }
-} */
-
 @media screen and (max-width: 1024px) {
   .glass {
     width: 80vw;
@@ -128,10 +115,4 @@ exclusion, hue, saturation, color, and luminosity */
   .titleSpan {
     font-size: 20px;
   }
-}
-
-@media screen and (max-width: 480px) {
-}
-
-@media screen and (max-width: 320px) {
 }

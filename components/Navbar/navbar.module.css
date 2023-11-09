@@ -76,19 +76,6 @@
   color: var(--glassTextSoft);
 }
 
-/* 
-@media screen and (max-width: 1500px) {
-  .headings {
-    max-width: 200px;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .container {
-    display: none;
-  }
-} */
-
 @media screen and (max-width: 1024px) {
   .wrapper {
     width: 90vw;
@@ -104,10 +91,4 @@
   .titleSpan {
     font-size: 25px;
   }
-}
-
-@media screen and (max-width: 480px) {
-}
-
-@media screen and (max-width: 320px) {
 }
