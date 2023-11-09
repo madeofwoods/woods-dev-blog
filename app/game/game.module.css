@@ -1,16 +1,11 @@
 .container {
-  /* width: 700px; */
-
   min-height: calc(100vh - 200px);
   width: 100%;
-  /* min-height: 300px; */
-  /* position: relative; */
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
-  /* padding: 50px; */
   z-index: 5;
 }
