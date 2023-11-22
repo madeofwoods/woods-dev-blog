@@ -24,20 +24,3 @@
     flex-direction: column;
   }
 }
-
-@media screen and (max-width: 768px) {
-  /* .topicsContainer {
-    font-size: 30px;
-    font-weight: 500;
-  }
-
-  .titleSpan {
-    font-size: 25px;
-  } */
-}
-
-@media screen and (max-width: 480px) {
-}
-
-@media screen and (max-width: 320px) {
-}

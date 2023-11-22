@@ -1,5 +1,4 @@
 .themeToggle {
-  /* border: 1px solid var(--text); */
   width: 49px;
   height: 49px;
   border-radius: 8px;
@@ -28,7 +27,6 @@
   width: 25px;
   height: 25px;
   background: linear-gradient(30deg, rgb(255, 47, 0), orangered, rgb(255, 128, 0), orange);
-  /* filter: blur(1px); */
   border-radius: 50%;
 }
 
@@ -183,7 +181,4 @@
     width: 0%;
     height: 0%;
   }
-}
-
-.none {
 }

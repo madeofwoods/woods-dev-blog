@@ -6,7 +6,6 @@
   justify-content: center;
   flex-direction: column;
   gap: 10px;
-  /* padding: 50px; */
   z-index: 5;
   margin-bottom: 40px;
 }
@@ -17,7 +16,6 @@
   justify-content: left;
   gap: 60px;
   width: 100%;
-  /* padding: 0px 30px; */
 }
 
 .linkDate {
@@ -53,7 +51,6 @@
 
 .glass:hover {
   transform: scale(1.02);
-  /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgb(255, 255, 255, 0)); */
   background: var(--glassBgHover);
   box-shadow: var(--glassLinksHover);
 }
@@ -70,7 +67,6 @@
   .container {
     width: 90vw;
   }
-  /* width: 700px; */
   .glass {
     width: 90%;
   }

@@ -4,10 +4,8 @@
   height: 100%;
   overflow: hidden;
   clip-path: inset(0 0 0 0);
-  /* background-color: blueviolet; */
   top: 0%;
   left: 0%;
-  /* background-color: bisque; */
 }
 
 .blur {
@@ -15,8 +13,6 @@
   height: 360px;
   position: fixed;
   transform: translate(-50%, -50%);
-  /* left: 51%;
-  bottom: 0%; */
   border-radius: 50%;
   animation: rotate 15s linear infinite;
   z-index: -1;
@@ -31,7 +27,6 @@
   top: 0%;
   left: 0%;
   z-index: 2;
-  /* mix-blend-mode: normal; */
   backdrop-filter: blur(var(--blur));
   opacity: 1;
 }
