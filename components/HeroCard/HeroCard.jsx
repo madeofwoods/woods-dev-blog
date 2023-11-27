@@ -3,7 +3,7 @@ import styles from "./heroCard.module.css";
 const HeroCard = () => {
   return (
     <div className={styles.container}>
-      <div className={`${styles.ball}`}></div>
+      {/* <div className={`${styles.ball}`}></div> */}
       <div className={styles.glassContainer}>
         <div className={styles.glassOverlay}></div>
         <div className={styles.glass}>
