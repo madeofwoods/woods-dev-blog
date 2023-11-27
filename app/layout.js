@@ -8,7 +8,7 @@ import Footer from "@/components/Footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "M A D E O F W O O D S",
+  title: "MADEOFWOODS",
   description: "A blog made with MDX and Next13.",
 };
 
