@@ -115,4 +115,8 @@ exclusion, hue, saturation, color, and luminosity */
   .titleSpan {
     font-size: 20px;
   }
+
+  .glassContainer {
+    mix-blend-mode: normal;
+  }
 }
