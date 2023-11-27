@@ -25,7 +25,7 @@ exclusion, hue, saturation, color, and luminosity */
 
 .glass {
   position: relative;
-  mix-blend-mode: var(--mixBlend);
+  /* mix-blend-mode: var(--mixBlend); */
   z-index: 10;
   margin-top: 100px;
   margin-bottom: 150px;
@@ -117,6 +117,6 @@ exclusion, hue, saturation, color, and luminosity */
   }
 
   .glassContainer {
-    mix-blend-mode: luminosity !important;
+    mix-blend-mode: normal !important;
   }
 }
