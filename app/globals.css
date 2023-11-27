@@ -163,10 +163,6 @@ body {
 }
 
 .wrapper {
-  /* max-width: 1536px; */
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* padding: 0px 80px; */
   z-index: 5;
   position: relative;
 }
@@ -346,6 +342,7 @@ pre[class*="language-"] {
   color: rgb(121, 127, 137); /* Line number color */
   content: attr(line);
   font-size: 12px;
+  /* vertical-align: top; */
 }
 
 .rehype-code-title {
@@ -361,4 +358,35 @@ pre[class*="language-"] {
   transform: translateX(-50%);
   left: 90%;
   z-index: 0;
+}
+
+@media screen and (max-width: 768px) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .rehype-code-title {
+    left: 85%;
+  }
+  .line-number::before {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .rehype-code-title {
+    left: 80%;
+  }
+  .line-number::before {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 320px) {
 }
