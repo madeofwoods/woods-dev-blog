@@ -53,14 +53,6 @@
   margin-left: 2px;
 }
 
-/* .li {
-  list-style-image: url(/rightArrow.png);
-} */
-/* .ordered {
-  list-style: none;
-  color: red;
-} */
-
 .oLi {
   counter-increment: muffins;
   margin-bottom: 6px;
