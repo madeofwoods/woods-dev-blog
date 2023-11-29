@@ -8,7 +8,7 @@ const BlogLinks = ({ blogs }) => {
   return (
     <div className={styles.container}>
       {sortedBlogs.map((blog) => (
-        <Link href={`/blog/${blog.slug}`} key={blog.slug} className={styles.glass}>
+        <Link href={`/posts/${blog.slug}`} key={blog.slug} className={styles.glass}>
           <div className={styles.linkText}>
             <div className={styles.linkDate}>
               {new Date(blog.frontMatter.dateString).toUTCString().slice(5, 11)}
