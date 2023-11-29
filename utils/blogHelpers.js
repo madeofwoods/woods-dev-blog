@@ -3,10 +3,10 @@ import matter from "gray-matter";
 import path from "path";
 
 export const getAllBlogs = () => {
-  const files = fs.readdirSync("posts");
+  const files = fs.readdirSync("blogPosts");
 
   const posts = files.map((filename) => {
-    const mdxWithMeta = fs.readFileSync(path.join(process.cwd(), "posts", filename));
+    const mdxWithMeta = fs.readFileSync(path.join(process.cwd(), "blogPosts", filename));
     const { data: frontMatter } = matter(mdxWithMeta);
     return {
       frontMatter,
@@ -25,7 +25,7 @@ export const getFilteredBlogs = (topic) => {
 };
 
 export const getBlog = async (slug) => {
-  const source = fs.readFileSync(path.join(process.cwd(), "posts", slug + ".mdx"), "utf-8");
+  const source = fs.readFileSync(path.join(process.cwd(), "blogPosts", slug + ".mdx"), "utf-8");
 
   const { data: frontMatter, content } = matter(source);
 
