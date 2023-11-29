@@ -6,7 +6,6 @@ import { Item } from "./ClientCustomComponents";
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 export const H1 = ({ children }) => {
-  console.log(String(children).toLowerCase().split(" ").join("-"));
   return (
     <h1
       className={styles.h1}

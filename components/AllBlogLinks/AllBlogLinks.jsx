@@ -10,12 +10,10 @@ import BlogLinks from "../BlogLinks/BlogLinks";
 
 export const generateStaticParams = () => {
   const blogs = getAllBlogs();
-  console.log(blogs);
   return { blogs: blogs };
 };
 const AllBlogLinks = async ({ blogs }) => {
   const sortedBlogs = await sortBlogsByDate(blogs);
-  console.log(sortedBlogs);
 
   const publishedBlogs = await getPublishedBlogs(sortedBlogs);
   const years = getYearsArray(blogs);

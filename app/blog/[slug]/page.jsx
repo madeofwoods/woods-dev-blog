@@ -16,14 +16,11 @@ const mdxOptions = {
 export const generateStaticParams = async () => {
   const posts = getAllBlogs();
   const params = posts.map((post) => ({ slug: post.slug }));
-  console.log(params);
   return params;
 };
 
 const BlogPage = async ({ params }) => {
-  console.log("params", params);
   const data = await getBlog(params.slug);
-  console.log(data);
   const { headings, ids } = getHeadings(data.content);
 
   return (

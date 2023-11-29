@@ -12,7 +12,6 @@ const ThemeToggle = () => {
   const handleClick = () => {
     toggle();
     !isClicked && setIsClicked(true);
-    console.log(isClicked);
   };
 
   return (

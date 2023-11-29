@@ -48,7 +48,6 @@
 //   }, []);
 
 //   useEffect(() => {
-//     console.log(scrollDir);
 //   }, [scrollDir]);
 
 //   useEffect(() => {
@@ -65,15 +64,13 @@
 //     });
 
 //     window.addEventListener("scrollend", () => {
-//       console.log("scrollend");
 //       setScrollActive(false);
 //     });
 //   }, []);
 
 //   useEffect(() => {
-//     console.log(scrollActive);
 //     if (!scrollActive) {
-//       scroll - scrollEnd > 20 && console.log("boom");
+//       scroll - scrollEnd > 20;
 //       setScrollEnd(scroll);
 //     }
 //   }, [scrollActive]);
