@@ -10,6 +10,7 @@
   justify-content: center;
   user-select: none;
   backdrop-filter: blur(10px);
+  border-top: 1px solid var(--footerBorder);
 }
 
 .linksContainer {

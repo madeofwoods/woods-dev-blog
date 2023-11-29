@@ -52,6 +52,7 @@ a {
   --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
   --glassTopicsShadow: 0 3px 30px 0 rgba(128, 106, 255, 0.423);
   --mixBlend: color-dodge;
+  --footerBorder: rgba(154, 154, 154, 0.35);
 
   --mdxTitle: #ffd1e8;
   --mdxTitle: #5454f4;
@@ -117,6 +118,8 @@ a {
   --glassShadow: 0 8px 32px 0 rgba(61, 61, 61, 0.37);
   --glassTopicsShadow: 0 15px 32px 0 rgba(61, 61, 61, 0.423);
   --mixBlend: luminosity;
+  --footerBorder: rgba(6, 6, 6, 0.431);
+
   --mdxTitle: #09572a;
   --mdxH1: #09572a;
 
