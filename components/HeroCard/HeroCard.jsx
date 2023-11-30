@@ -8,8 +8,7 @@ const HeroCard = () => {
         <div className={styles.glassOverlay}></div>
         <div className={styles.glass}>
           <div className={styles.title}>
-            Hi there, I&apos;m <span className={styles.titleName}>Matt W0000000oods</span>. Welcome to my
-            blog.&nbsp;
+            Hi there, I&apos;m <span className={styles.titleName}>Matt Woods</span>. Welcome to my blog.&nbsp;
             <div className={styles.titleSpan}>
               This is a coding journal, discussing things I create and learn on my journey as a frontend
               developer. I am focusing on React, NextJS, ThreeJS, React Three Fiber, Shaders and Game
