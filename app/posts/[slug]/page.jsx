@@ -6,7 +6,6 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeCodeTitles from "rehype-code-titles";
 import TableOfContents from "@/components/TableOfContents/TableOfContents";
 import { dictionary } from "@/utils/definitions";
-import Head from "next/head";
 
 const mdxOptions = {
   mdxOptions: {
@@ -20,6 +19,25 @@ export const generateStaticParams = async () => {
   return params;
 };
 
+export async function generateMetadata({ params }) {
+  try {
+    const data = await getBlog(params.slug);
+    return {
+      title: data.frontMatter.title,
+      description: data.frontMatter.desc,
+      alternates: {
+        canonical: `posts/${params.slug}`,
+      },
+    };
+  } catch (e) {
+    console.log(e);
+    return {
+      title: "Not Found",
+      description: "The page you are looking for does not exist.",
+    };
+  }
+}
+
 const BlogPage = async ({ params }) => {
   const data = await getBlog(params.slug);
   console.log(params.slug);
@@ -27,32 +45,18 @@ const BlogPage = async ({ params }) => {
   console.log(headings);
 
   return (
-    <>
-      <Head>
-        {/* Open Graph */}
-        <meta
-          property="og:url"
-          content={`blog.madeofwoods.com/${dictionary[data.frontMatter.topic].title}`}
-          key="ogurl"
-        />
-        <meta property="og:image" content={"/img/moon.jpg"} key="ogimage" />
-        <meta property="og:site_name" content="M A D E O F W O O D S" key="ogsitename" />
-        <meta property="og:title" content={dictionary[data.frontMatter.topic].title} key="ogtitle" />
-        {/* <meta property="og:description" content={description} key="ogdesc" /> */}
-      </Head>
-      <div className={styles.container}>
-        <h1 className={styles.title}>{data.frontMatter.title}</h1>
-        <div className={styles.subtitle}>
-          <span>{dictionary[data.frontMatter.topic].title || ""}</span>
-          {" // "}
-          <span>{dateFormat(data.frontMatter.dateString)}</span>
-        </div>
-        <TableOfContents headings={headings} ids={ids} />
-        <div className={styles.blogWrapper}>
-          <MDXRemote source={data.content} components={components} options={mdxOptions} />
-        </div>
+    <div className={styles.container}>
+      <h1 className={styles.title}>{data.frontMatter.title}</h1>
+      <div className={styles.subtitle}>
+        <span>{dictionary[data.frontMatter.topic].title || ""}</span>
+        {" // "}
+        <span>{dateFormat(data.frontMatter.dateString)}</span>
       </div>
-    </>
+      <TableOfContents headings={headings} ids={ids} />
+      <div className={styles.blogWrapper}>
+        <MDXRemote source={data.content} components={components} options={mdxOptions} />
+      </div>
+    </div>
   );
 };
 
