@@ -28,6 +28,12 @@ export async function generateMetadata({ params }) {
       canonical: `posts/${params.slug}`,
     },
     authors: [{ name: "Matt Woods" }],
+    twitter: {
+      card: "summary_large_image",
+      title: data.frontMatter.title,
+      description: data.frontMatter.desc,
+      creator: "@madeofwoods",
+    },
   };
 }
 
