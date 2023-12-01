@@ -20,22 +20,14 @@ export const generateStaticParams = async () => {
 };
 
 export async function generateMetadata({ params }) {
-  try {
-    const data = await getBlog(params.slug);
-    return {
-      title: data.frontMatter.title,
-      description: data.frontMatter.desc,
-      alternates: {
-        canonical: `posts/${params.slug}`,
-      },
-    };
-  } catch (e) {
-    console.log(e);
-    return {
-      title: "Not Found",
-      description: "The page you are looking for does not exist.",
-    };
-  }
+  const data = await getBlog(params.slug);
+  return {
+    title: data.frontMatter.title,
+    description: data.frontMatter.desc,
+    alternates: {
+      canonical: `posts/${params.slug}`,
+    },
+  };
 }
 
 const BlogPage = async ({ params }) => {
