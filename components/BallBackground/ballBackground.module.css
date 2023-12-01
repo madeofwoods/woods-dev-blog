@@ -63,6 +63,7 @@
   background: linear-gradient(55deg, hotpink, 35%, rgb(17, 17, 255), aquamarine);
   animation: rotateBall 15s linear infinite;
   z-index: 3;
+  opacity: 1;
 }
 
 @keyframes rotateBall {

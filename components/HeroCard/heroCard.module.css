@@ -66,11 +66,10 @@ exclusion, hue, saturation, color, and luminosity */
   left: 50%;
   top: 50%;
   border-radius: 50%;
-  background: linear-gradient(55deg, hotpink, 35%, rgb(0, 30, 255), 55%, aquamarine);
-  background: linear-gradient(55deg, hotpink, 25%, rgb(24, 41, 224), aquamarine);
   background: linear-gradient(55deg, hotpink, 30%, rgb(17, 17, 255), aquamarine);
   animation: rotateBall 15s linear infinite;
   z-index: 1;
+  opacity: 0.3;
 }
 
 @keyframes rotateBall {
