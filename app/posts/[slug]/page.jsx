@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
   const data = await getBlog(params.slug);
   return {
     title: data.frontMatter.title,
-    // description: data.frontMatter.desc,
+    description: data.frontMatter.desc,
     alternates: {
       canonical: `posts/${params.slug}`,
     },
