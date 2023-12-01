@@ -376,7 +376,8 @@ pre[class*="language-"] {
 
 @media screen and (max-width: 768px) {
   code[class*="language-"],
-  pre[class*="language-"] {
+  pre[class*="language-"],
+  .code-line {
     font-size: 12px;
     line-height: 17px;
   }
@@ -390,7 +391,8 @@ pre[class*="language-"] {
 
 @media screen and (max-width: 480px) {
   code[class*="language-"],
-  pre[class*="language-"] {
+  pre[class*="language-"],
+  .code-line {
     font-size: 10px;
     line-height: 15px;
   }
