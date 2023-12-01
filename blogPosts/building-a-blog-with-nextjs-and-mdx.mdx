@@ -49,7 +49,6 @@ I can also list some use cases for MDX:
 
 - this blog
 - future blogs
-
 ```
 
 And here it is on the page:
@@ -127,7 +126,6 @@ const getBlog = (blog) => {
         content
         }
 }
-
 ```
 
 For context, this is the object returned from <Tag>matter(blog)</Tag>, before destructuring:
@@ -176,7 +174,6 @@ const Blog = ({ blog }) => {
         </div>
     )
 }
-
 ```
 
 <Note>
@@ -218,7 +215,6 @@ const Tag = ({ children }) => {
     </span>
   );
 };
-
 ```
 
 Once all the custom components have been prepared, they are collected together in an object.
@@ -249,7 +245,6 @@ const Blog = ({ blog }) => {
         </div>
     )
 }
-
 ```
 
 With this set up, I was able to start writing my blog posts in MDX.
