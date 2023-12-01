@@ -9,7 +9,7 @@ const Footer = () => {
           <Link href="/" className={styles.logo}>
             M A D E O F W O O D S
           </Link>
-          <div className={styles.copyright}>&copy; 2023 Matt Woods</div>
+          <div className={styles.copyright}>&copy; 2023 Matt Woods - Berlin</div>
         </div>
         <div className={styles.links}>
           <Link className={styles.link} href="/">

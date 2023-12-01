@@ -1,6 +1,5 @@
 import styles from "./navbar.module.css";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
-import svgIcon from "../../public/svg/tree.svg";
 import Image from "next/image";
 import Link from "next/link";
 import LogoTrees from "../LogoTrees/LogoTrees";

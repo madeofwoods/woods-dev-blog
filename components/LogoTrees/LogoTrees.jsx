@@ -2,26 +2,13 @@
 
 import Image from "next/image";
 import styles from "./logoTrees.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { treeState } from "@/utils/definitions";
 
 const trees = { w: 20, h: 30 };
 
 const LogoTrees = () => {
-  const [isTree, setIsTree] = useState({
-    0: false,
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-    8: true,
-    9: true,
-    10: true,
-    11: true,
-    12: true,
-  });
+  const [isTree, setIsTree] = useState(treeState);
 
   return (
     <div className={styles.container}>
@@ -85,26 +72,6 @@ const LogoTrees = () => {
         />
         <div className={`${styles.letter}  ${!isTree[5] && styles.letterFade}`}>F</div>
       </div>{" "}
-      {/* <div className={styles.treeContainer} onMouseOver={() => setIsTree({ ...isTree, 6: false })}>
-        <Image
-          className={`${styles.trees} ${!isTree[6] && styles.treeFade}`}
-          src="/trees/treeSeven.png"
-          width={20}
-          height={25}
-          alt=""
-        />
-        <div className={`${styles.letter}  ${!isTree[6] && styles.letterFade}`}>O</div>
-      </div>{" "}
-      <div className={styles.treeContainer} onMouseOver={() => setIsTree({ ...isTree, 7: false })}>
-        <Image
-          className={`${styles.trees} ${!isTree[7] && styles.treeFade}`}
-          src="/trees/treeOne.png"
-          width={20}
-          height={26}
-          alt=""
-        />
-        <div className={`${styles.letter}  ${!isTree[7] && styles.letterFade}`}>M</div>
-      </div>{" "} */}
       <div className={styles.treeContainer} onMouseOver={() => setIsTree({ ...isTree, 8: false })}>
         <Image
           className={`${styles.trees} ${!isTree[8] && styles.treeFade}`}

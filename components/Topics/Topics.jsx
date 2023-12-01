@@ -3,7 +3,6 @@ import styles from "./topics.module.css";
 const Topics = () => {
   return (
     <div className={styles.container}>
-      {/* <div className={styles.title}>Topics</div> */}
       <div className={styles.topicsContainer}>
         <TopicsCard topic="react" />
         <TopicsCard topic="three" />

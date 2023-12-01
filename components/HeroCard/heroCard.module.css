@@ -25,7 +25,6 @@ exclusion, hue, saturation, color, and luminosity */
 
 .glass {
   position: relative;
-  /* mix-blend-mode: var(--mixBlend); */
   z-index: 10;
   margin-top: 100px;
   margin-bottom: 150px;

@@ -60,6 +60,10 @@
   color: var(--text);
 }
 
+.italic {
+  font-style: italic;
+}
+
 @media screen and (max-width: 1024px) {
   .logoContainer {
     flex: 3;

@@ -3,20 +3,12 @@ import { ImageResponse } from "next/server";
 
 export const size = { width: 1200, height: 680 };
 export const contentType = "image/png";
-// export const runtime = "edge";
 
 export default async function og({ params }) {
   try {
     const slug = params.slug;
     const blog = await getBlog(slug);
 
-    // const interBold = await fetch(new URL("./Inter-Bold.ttf", import.meta.url)).then((res) =>
-    //   res.arrayBuffer()
-    // );
-
-    // const image = await fetch(new URL(`https://localhost:3000/posts/${slug}/og.jpg`, import.meta.url)).then(
-    //   (res) => res.arrayBuffer()
-    // );
     return new ImageResponse(
       (
         <div
@@ -32,16 +24,13 @@ export default async function og({ params }) {
             backgroundColor: "black",
           }}
         >
-          <div style={{ position: "absolute", top: 70, left: 70, display: "flex" }}>
+          <div style={{ position: "absolute", top: 80, left: 80, display: "flex" }}>
             <div className="blog" style={{ display: "flex", gap: 12, alignItems: "center" }}>
-              <div className="square" style={{ width: 20, height: 20, backgroundColor: "white" }}></div>
-              <div style={{ fontSize: "14px", letterSpacing: 2 }}>M A D E O F W O O D S</div>
+              <div className="square" style={{ width: 25, height: 25, backgroundColor: "white" }}></div>
+              <div style={{ fontSize: "18px", letterSpacing: 2, fontWeight: "bold" }}>
+                M A D E O F W O O D S
+              </div>
             </div>
-            {/* <img
-              src={image}
-              alt={blog?.frontMatter.title || "MADEOFWOODS"}
-              style={{ display: "flex", flex: 1, width: 1200, height: 630 }}
-            /> */}
           </div>
           <div
             className="circle"
@@ -59,11 +48,11 @@ export default async function og({ params }) {
           ></div>
           <h1
             style={{
-              fontSize: "35px",
+              fontSize: "37px",
               color: "white",
               padding: "20px 50px",
               position: "absolute",
-              top: "75%",
+              top: "72%",
               fontWeight: "bold",
               textTransform: "capitalize",
             }}
@@ -74,7 +63,6 @@ export default async function og({ params }) {
       ),
       {
         ...size,
-        // fonts: [{ name: "Inter", data: interBold, style: "normal" }],
       }
     );
   } catch (e) {
