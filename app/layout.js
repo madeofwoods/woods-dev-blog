@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   metadataBase: new URL("https://blog.madeofwoods.com/"),
-  title: { default: "MADEOFWOODS", template: `%s | MADEOFWOODS` },
+  title: { default: "MADEOFWOODS", template: `%s | M A D E O F W O O D S` },
   description: "Explore the latest posts from my frontend dev blog.",
 };
 
