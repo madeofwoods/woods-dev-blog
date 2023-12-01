@@ -10,7 +10,7 @@ The purpose of this project was to learn more about Next.js, and how to implemen
 
 ## Blog Page
 
-![Blog Post](./public/img/screenshot1.png)
+![Blog Post](./public/img/screenshot2.png)
 
 ## The Blog
 
