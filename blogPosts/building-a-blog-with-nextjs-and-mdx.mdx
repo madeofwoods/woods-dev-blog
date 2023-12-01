@@ -39,7 +39,6 @@ The addition of JSX components makes MDX a very powerful language.
 This is a code snippet from a hypothetical post:
 
 ```md:MDX
-
 Here is MDX in action.
 
 I can make things **bold**.
@@ -165,7 +164,6 @@ I then imported MDXRemote, which I imported with the <Tag>/rsc</Tag> suffix, bec
 I then used the <Tag>getBlog()</Tag> function from before to access my frontmatter, and blog content.
 
 ```jsx:jsx
-
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 const Blog = ({ blog }) => {
@@ -192,35 +190,34 @@ I can create custom components for simple HTML tags like <Tag>{`<h1>`}</Tag> and
 As well as additional custom components for unique JSX elements, like the info box above or this <Tag>`<Tag>`</Tag> component.
 
 ```jsx:jsx
+import styles from "./customMDX.module.css";
+import { Source_Code_Pro } from "next/font/google";
 
-  import styles from "./customMDX.module.css";
-  import { Source_Code_Pro } from "next/font/google";
+const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
-  const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
+const H1 = ({ children }) => {
+  return (
+    <h1 style={{ fontSize: "32px", color: "#09572a" }}>
+      {children}
+    </h1>
+  );
+};
 
-  const H1 = ({ children }) => {
-    return (
-      <h1 style={{ fontSize: "32px", color: "#09572a" }}>
-        {children}
-      </h1>
-    );
-  };
+const Strong = ({ children }) => {
+  return (
+    <strong style={{ color: "#074722" }}>
+      {children}
+    </strong>
+  );
+};
 
-  const Strong = ({ children }) => {
-    return (
-      <strong style={{ color: "#074722" }}>
-        {children}
-      </strong>
-    );
-  };
-
-  const Tag = ({ children }) => {
-    return (
-      <span className={`${styles.tag} ${sourceCodePro.className}`}>
-        {children}
-      </span>
-    );
-  };
+const Tag = ({ children }) => {
+  return (
+    <span className={`${styles.tag} ${sourceCodePro.className}`}>
+      {children}
+    </span>
+  );
+};
 
 ```
 

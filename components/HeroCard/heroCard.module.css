@@ -149,6 +149,7 @@ exclusion, hue, saturation, color, and luminosity */
 
   .titleSpan {
     font-size: 18px;
+    color: var(--glassText);
   }
 }
 
