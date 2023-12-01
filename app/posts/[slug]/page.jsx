@@ -27,6 +27,7 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: `posts/${params.slug}`,
     },
+    authors: [{ name: "Matt Woods" }],
   };
 }
 
