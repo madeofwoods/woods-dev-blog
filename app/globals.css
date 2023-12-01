@@ -387,7 +387,7 @@ pre[class*="language-"] {
   code[class*="language-"],
   pre[class*="language-"],
   .code-line {
-    font-size: 12px !important;
+    font-size: 10px !important;
     line-height: 15px;
   }
   .rehype-code-title {

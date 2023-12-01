@@ -11,7 +11,7 @@ export const metadata = {
   metadataBase: new URL("https://blog.madeofwoods.com/"),
   title: { default: "MADEOFWOODS", template: `%s | M A D E O F W O O D S` },
   description: "Explore the latest posts from my frontend dev blog.",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, minimal-ui",
 };
 
 export default function RootLayout({ children }) {

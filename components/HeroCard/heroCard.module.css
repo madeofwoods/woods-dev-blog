@@ -25,7 +25,7 @@ exclusion, hue, saturation, color, and luminosity */
 
 .glass {
   position: relative;
-  mix-blend-mode: var(--mixBlend);
+  /* mix-blend-mode: var(--mixBlend); */
   z-index: 10;
   margin-top: 100px;
   margin-bottom: 150px;
@@ -69,7 +69,7 @@ exclusion, hue, saturation, color, and luminosity */
   background: linear-gradient(55deg, hotpink, 30%, rgb(17, 17, 255), aquamarine);
   animation: rotateBall 15s linear infinite;
   z-index: 1;
-  opacity: 0.3;
+  opacity: 1;
 }
 
 @keyframes rotateBall {
@@ -125,7 +125,7 @@ exclusion, hue, saturation, color, and luminosity */
   }
 
   .glassContainer {
-    mix-blend-mode: normal !important;
+    mix-blend-mode: luminosity !important;
   }
   .glass {
     padding: 40px;
@@ -149,6 +149,10 @@ exclusion, hue, saturation, color, and luminosity */
   .titleSpan {
     font-size: 18px;
     color: var(--glassText);
+  }
+
+  .ball {
+    opacity: 0.3;
   }
 }
 
