@@ -196,8 +196,8 @@
   }
 
   .blur {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
   }
 
   .blurCover {
@@ -212,7 +212,7 @@
   }
 
   .blur {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
   }
 }

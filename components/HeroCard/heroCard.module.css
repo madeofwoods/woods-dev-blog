@@ -143,12 +143,16 @@ exclusion, hue, saturation, color, and luminosity */
   .title {
     font-size: 30px;
     font-weight: 500;
+    line-height: 35px;
     padding: 0;
   }
 
   .titleSpan {
     font-size: 18px;
     color: var(--glassText);
+    opacity: 0.9;
+    line-height: 22px;
+    font-weight: 400;
   }
 
   .ball {
