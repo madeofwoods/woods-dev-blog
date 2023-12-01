@@ -200,8 +200,8 @@ pre[class*="language-"] {
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  font-size: 14px !important;
-  line-height: 20px;
+  font-size: 12px !important;
+  line-height: 16;
   -moz-tab-size: 2;
   -o-tab-size: 2;
   tab-size: 2;
