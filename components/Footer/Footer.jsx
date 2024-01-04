@@ -26,7 +26,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className={styles.socials}>
-          <Link className={styles.link} href="https://github.com/halfbloodquince" target="_blank">
+          <Link className={styles.link} href="https://github.com/madeofwoods" target="_blank">
             Github
           </Link>
           <Link className={styles.link} href="https://www.linkedin.com/in/madeofwoods/" target="_blank">
