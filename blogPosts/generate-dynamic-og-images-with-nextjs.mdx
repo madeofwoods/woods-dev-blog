@@ -1,0 +1,264 @@
+---
+title: "Generate dynamic Open Graph images with Next.js 13.3+"
+dateString: "2024-01-10"
+topic: "react"
+isPublished: true
+desc: "How to dynamically generate Open Graph images with Next.js 13.3+"
+---
+
+# What is an Open Graph image?
+
+Open Graph is an internet protocol that provides rules for the sharing of metadata of a website or page with a third party webpage. This is most commonly seen on social networks, where a link to a site generates a corresponding title, description and image. The image provided is an OpenGraph image.
+
+Open Graph images are important element in improving website SEO.
+
+> > > _insert image_
+
+# Static Open Graph images in Next 13
+
+The introduction of the App directory with Next.js 13 allowed for a static Open Graph image to be added directly into the <Tag>app</Tag> folder, as well as any other static page folder.
+
+```md {4, 7}
+├── app
+│ ├── posts / [slug]
+│ ├── about
+| | ├── opengraph-image.jpg
+│ ├── globals.css
+│ ├── page.jsx
+│ ├── opengraph-image.jpg
+```
+
+The image must be called <Tag>opengraph-image.jpg</Tag>.
+
+This is an incredibly efficient and simple way of immediately improving the visibility of your page links. However, sometimes a static image is not sufficient.
+
+# When and why to use dynamic Open Graph images
+
+If you want an Open Graph image which is responsive dynamically generated page content, you will require a dynamic Open Graph image. This would be the case if you have dynamic product pages on an eCommerce site, or in this case a blog site with dynamically generated blog posts.
+
+This allows for the Open Graph image to be specific to the content of the product page or blog post itself.
+
+_insert image_
+
+# Getting started with dynamic OG images with Next.js 13.3+
+
+This was something of a journey of discovery for me. Due to the rapid development and improvement of Next.js, there are various solutions to this problem that are suggested around the internet, as well as in various parts of the Next.js and Vercel documentation.
+
+<List>
+  <Item>
+    Creating an <Tag>api</Tag> folder in the pages directory - [docs](https://vercel.com/docs/functions/edge-functions/og-image-generation/og-image-examples#using-an-external-dynamic-image)
+  </Item>
+  <Item>
+    Creating the JSX file &nbsp;<Tag>app/og/route.jsx</Tag> - [docs](https://vercel.com/docs/functions/edge-functions/og-image-generation/og-image-examples#using-an-external-dynamic-image)
+  </Item>
+
+  <Item>
+    Creating the JSX file &nbsp;<Tag>app/pageName/opengraph-image.jsx</Tag> - [docs](https://nextjs.org/blog/next-13-3#dynamic-open-graph-image-generation)
+  </Item>
+</List>
+
+The <Tag>api</Tag> option is written for the pages directory. So, although I did find an example of it being used with the app directory, I decided to pass on that one.
+
+The <Tag>app/pageName/opengraph-image.jsx</Tag> documentation is specifically written in the 13.3 release notes, so this felt like the most up-to-date option.
+
+I wanted to generate dynamic images for my blog posts, which are dynamically generated from the <Tag>app/posts/[slug]</Tag> folder. So, I placed created the following <Tag>app/posts/[slug]/opengraph-image.jsx</Tag> file.
+
+```jsx:jsx showlinenumbers
+import { ImageResponse } from "next/server";
+
+export const size = { width: 1200, height: 680 };
+export const contentType = "image/png";
+
+export default function og() {
+  return new ImageResponse();
+}
+```
+
+<Note>
+  Before Next 13.3.0 **ImageResponse** was being imported from the package **@vercel/og** which needed to installed.
+  From 13.3.0 **ImageResponse** can be imported from **next/server**. From Next 14.0.0 **ImageResponse** moved from
+  **next/server** to **next/og**.
+</Note>
+
+The **ImageResponse** constructor allows us to generate images using JSX and CSS.
+
+The CSS only works _inline_, and not all CSS properties are permitted. There is a full list of available CSS properties [here](https://github.com/vercel/satori#css).
+
+So, I was easily able to add some consistent elements to my image, that will exist for each blog post.
+
+```jsx:jsx {8-43} showlinenumbers
+import { ImageResponse } from "next/server";
+
+export const size = { width: 1200, height: 680 };
+export const contentType = "image/png";
+
+export default function og() {
+      return new ImageResponse(
+    (
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "100%",
+          color: "white",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "20px",
+          position: "relative",
+          backgroundColor: "black",
+        }}
+      >
+        <div style={{ position: "absolute", top: 70, left: 70, display: "flex" }}>
+          <div className="blog" style={{ display: "flex", gap: 12, alignItems: "center" }}>
+            <div className="square" style={{ width: 27, height: 27, backgroundColor: "white" }}></div>
+            <div style={{ fontSize: "22px", letterSpacing: 2, fontWeight: "bold" }}>M A D E O F W O O D S</div>
+          </div>
+        </div>
+        <div
+          className="circle"
+          style={{
+            width: 280,
+            height: 280,
+            borderRadius: "50%",
+            background: "linear-gradient(55deg, hotpink 20%, blue 45% ,aquamarine 86% )",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            opacity: 0.8,
+          }}
+        ></div>
+      </div>
+    )
+  );
+}
+
+```
+
+# Testing the image output from of your OG image
+
+You can find the link to your dynamic OG image in <Tag>meta</Tag> tags of HTML source code. On my local server the <Tag>meta</Tag> looks like this:
+
+```HTML
+<meta property="og:image" content="http://localhost:3000/posts/generate-dynamic-og-images-with-nextjs/opengraph-image?6ccfdc85d4ac399e">
+```
+
+Opening that URL in a new tab shows me what my OG image looks like so far:
+
+<Img alt="alt" src="/blogs/generateOG/og3.png" />
+
+It is worth noting that Vercel have also created a very useful **OG Image Playground** where you can test out ideas and look at examples.
+The playground can be found [here](https://og-playground.vercel.app/).
+
+# Rendering dynamic content to the image
+
+This already looks great to me, but there is nothing dynamic about this yet. This is just the template, every blog link would look the same.
+
+In order to make the image feel more bespoke, I decided to add the title of the blog to the image as well.
+
+Dynamic segments, in this case the <Tag>[slug]</Tag> folder name, are passed to the defualt function of <Tag>opengraph-image.jsx</Tag> as the <Tag>params</Tag> prop.
+
+```jsx:jsx
+export default async function og({ params }) {
+  try {
+    const slug = params.slug;
+    const blog = await getBlog(slug);
+
+    return new ImageResponse(
+        \\ ...content
+    )
+  }
+}
+```
+
+Here, the params prop is the object:
+
+```js
+{
+  slug: "generate-dynamic-og-images-with-nextjs";
+}
+```
+
+From the slug value, I am able to call the <Tag>getBlog()</Tag> function which returns the <Tag>frontmatter</Tag> and the <Tag>content</Tag> of the blog.
+For more context on this I would recommend reading my blog post [Building a blog with Next.js and MDX](http://localhost:3000/posts/building-a-blog-with-nextjs-and-mdx).
+
+Effectively, the <Tag>frontmatter</Tag> is the object:
+
+```js
+{
+    title: 'Generate dynamic Open Graph images with Next.js 13.3+',
+    dateString: "2024-01-10"
+    topic: "react"
+    isPublished: true
+    desc: "How to dynamically generate Open Graph images with Next.js 13.3+"
+}
+```
+
+From this I can now dynamically add any text to the image. I could also add unique colour codes, image URLs and more.
+For now, I have stuck with the blog title.
+
+```jsx:jsx showlinenumbers
+export default async function og({ params }) {
+  try {
+    const slug = params.slug;
+    const blog = await getBlog(slug);
+
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            color: "white",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: "20px",
+            position: "relative",
+            backgroundColor: "black",
+          }}
+        >
+          <div style={{ position: "absolute", top: 70, left: 70, display: "flex" }}>
+            <div className="blog" style={{ display: "flex", gap: 12, alignItems: "center" }}>
+              <div className="square" style={{ width: 27, height: 27, backgroundColor: "white" }}></div>
+              <div style={{ fontSize: "22px", letterSpacing: 2, fontWeight: "bold" }}>M A D E O F W O O D S</div>
+            </div>
+          </div>
+          <div
+            className="circle"
+            style={{
+              width: 280,
+              height: 280,
+              borderRadius: "50%",
+              background: "linear-gradient(55deg, hotpink 20%, blue 45% ,aquamarine 86% )",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              opacity: 0.8,
+            }}
+          ></div>
+          <h1
+            style={{
+              fontSize: "37px",
+              color: "white",
+              padding: "20px 50px",
+              position: "absolute",
+              top: "72%",
+              fontWeight: "bold",
+              textTransform: "capitalize",
+            }}
+          >
+            {blog?.frontMatter.title}
+          </h1>
+        </div>
+      ),
+      {
+        ...size,
+      }
+    );
+  } catch (e) {
+    console.log(e);
+  }
+}
+```

@@ -20,6 +20,7 @@ export const generateStaticParams = async () => {
 };
 
 export async function generateMetadata({ params }) {
+  console.log(params);
   const data = await getBlog(params.slug);
   return {
     title: data.frontMatter.title,

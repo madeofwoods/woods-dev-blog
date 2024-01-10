@@ -27,9 +27,7 @@ export default async function og({ params }) {
           <div style={{ position: "absolute", top: 70, left: 70, display: "flex" }}>
             <div className="blog" style={{ display: "flex", gap: 12, alignItems: "center" }}>
               <div className="square" style={{ width: 27, height: 27, backgroundColor: "white" }}></div>
-              <div style={{ fontSize: "22px", letterSpacing: 2, fontWeight: "bold" }}>
-                M A D E O F W O O D S
-              </div>
+              <div style={{ fontSize: "22px", letterSpacing: 2, fontWeight: "bold" }}>M A D E O F W O O D S</div>
             </div>
           </div>
           <div
