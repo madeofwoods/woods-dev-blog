@@ -89,6 +89,9 @@ a {
   --mdxNoteText: black;
   --mdxImageBlur: linear-gradient(to right, rgba(144, 142, 225, 0.54), rgba(186, 137, 231, 0.581));
 
+  --mdxLinkedIn: rgb(32, 38, 42);
+  --mdxLinkedInHover: rgb(39, 45, 50);
+
   --tocPowerBar: hotpink;
   --tocGlow: #d395e1;
   --tocActiveText: #fc89c3;
@@ -148,6 +151,9 @@ a {
   --mdxNoteBg: #f0d2c7;
   --mdxNoteBorder: #f56440;
   --mdxNoteText: black;
+
+  --mdxLinkedIn: rgb(43, 51, 57);
+  --mdxLinkedInHover: rgb(52, 62, 68);
 
   --tocPowerBar: #1fc062;
   --tocGlow: #ff8649;

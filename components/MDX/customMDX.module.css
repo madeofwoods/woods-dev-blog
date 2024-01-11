@@ -253,13 +253,13 @@
   margin-right: auto;
   width: 500px;
   /* max-height: 580px; */
-  background-color: rgb(27, 32, 36);
+  background-color: var(--mdxLinkedIn);
   gap: 5px;
   border-radius: 8px;
 }
 
 .linkedInContainer:hover {
-  background-color: rgb(32, 38, 42);
+  background-color: var(--mdxLinkedInHover);
 }
 
 .linkedInMain {
