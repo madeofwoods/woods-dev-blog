@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 4px;
+  gap: 7px;
 }
 
 .logoContainer {
@@ -41,26 +41,31 @@
   flex: 1;
   font-weight: 300;
   color: var(--softText);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .logo {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1px;
   cursor: pointer;
 }
 
 .copyright {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 300;
   color: var(--softText);
+}
+
+.berlin {
+  letter-spacing: 0.2em;
+  font-size: 12px;
 }
 
 .link:hover {
   color: var(--text);
 }
 
-.italic {
+.berlin {
   font-style: italic;
 }
 

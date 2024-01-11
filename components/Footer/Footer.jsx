@@ -1,5 +1,8 @@
 import Link from "next/link";
 import styles from "./footer.module.css";
+import { Dancing_Script } from "next/font/google";
+
+const dancingScript = Dancing_Script({ subsets: ["latin"] });
 
 const Footer = () => {
   return (
@@ -9,7 +12,9 @@ const Footer = () => {
           <Link href="/" className={styles.logo}>
             M A D E O F W O O D S
           </Link>
-          <div className={styles.copyright}>&copy; 2023 Matt Woods - Berlin</div>
+          <div className={styles.copyright}>
+            &copy; 2024 Matt Woods &mdash; <span className={`${dancingScript.className} ${styles.berlin}`}>Berlin</span>
+          </div>
         </div>
         <div className={styles.links}>
           <Link className={styles.link} href="/">
