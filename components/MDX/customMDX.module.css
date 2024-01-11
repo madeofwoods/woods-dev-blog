@@ -248,9 +248,107 @@
 }
 
 .linkedInContainer {
+  margin-left: auto;
+  margin-right: auto;
   width: 500px;
-  height: 500px;
-  background-color: red;
+  /* max-height: 580px; */
+  background-color: rgb(27, 32, 36);
+  gap: 5px;
+  border-radius: 8px;
+}
+
+.linkedInContainer:hover {
+  background-color: rgb(32, 38, 42);
+}
+
+.linkedInMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 25px;
+}
+
+.linkedInTitles {
+  display: flex;
+  width: 100%;
+  margin-left: 10px;
+  align-items: center;
+  gap: 10px;
+}
+
+.linkedInLink {
+  color: rgb(172, 172, 172);
+  overflow-wrap: break-word;
+}
+
+.linkedInAvatar {
+  border-radius: 50%;
+}
+
+.linkedInName {
+  font-weight: bold;
+  font-size: 18px;
+}
+.linkedInText {
+  width: 100%;
+  padding: 10px 3px;
+  line-height: 25px;
+  font-size: 14px;
+}
+
+.linkedInImgContainer {
+  border-radius: 8px 8px 0px 0px;
+  overflow: hidden;
+  position: relative;
+  object-fit: cover;
+  width: 450px;
+  height: 250px;
+  border-top: 1px solid rgb(101, 101, 101, 0.6);
+  border-left: 1px solid rgb(101, 101, 101, 0.6);
+  border-right: 1px solid rgb(101, 101, 101, 0.6);
+}
+
+.liImageBlock {
+  margin: 5px 0px 5px 0px;
+}
+
+.liImageFooter {
+  border-radius: 0px 0px 8px 8px;
+  background-color: rgb(56, 67, 79);
+  border-bottom: 1px solid rgb(101, 101, 101, 0.6);
+  border-left: 1px solid rgb(101, 101, 101, 0.6);
+  border-right: 1px solid rgb(101, 101, 101, 0.6);
+  line-height: 25px;
+  padding: 8px;
+}
+
+.liImageTitle {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.liImageDesc {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgb(163, 163, 163);
+}
+
+.liFooter {
+  border-top: 1px solid rgba(255, 255, 255, 0.159);
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.liButton {
+  margin-left: auto;
+  margin-right: 15px;
+  background-color: rgb(113, 183, 251);
+  padding: 5px 15px;
+  color: black;
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 768px) {
@@ -264,6 +362,14 @@
   .imageContainer {
     width: 80vw;
     height: calc((80vw * (4 / 7)));
+  }
+  .linkedInContainer {
+    width: 80vw;
+  }
+
+  .linkedInImgContainer {
+    width: 70vw;
+    height: calc(70vw * (5 / 9));
   }
 }
 
@@ -279,5 +385,12 @@
   .para {
     font-size: 16px;
     line-height: 30px;
+  }
+
+  .liImageTitle {
+    font-size: 12px;
+  }
+  .liImageDesc {
+    font-size: 11px;
   }
 }

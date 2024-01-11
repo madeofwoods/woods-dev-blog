@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./customMDX.module.css";
 import { Source_Code_Pro } from "next/font/google";
 import { Item } from "./ClientCustomComponents";
+import Link from "next/link";
 
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
@@ -77,6 +78,37 @@ const Note = ({ children }) => {
   );
 };
 
+const LinkedIn = ({ link, avatar, content, image, name }) => {
+  return (
+    <Link href={link} target="_blank">
+      <div className={styles.linkedInContainer}>
+        <div className={styles.linkedInMain}>
+          <div className={styles.linkedInTitles}>
+            <Image className={styles.linkedInAvatar} src={avatar} alt="" width={60} height={60} />
+            <div className={styles.linkedInName}>{name}</div>
+          </div>
+          <div className={styles.linkedInText}>
+            <div>{content}</div>
+            <div className={styles.linkedInLink}>{link}</div>
+          </div>
+          <div className={styles.liImageBlock}>
+            <div className={styles.linkedInImgContainer}>
+              <Image src={image} alt="" fill />
+            </div>
+            <div className={styles.liImageFooter}>
+              <div className={styles.liImageTitle}>MADEOFWOODS</div>
+              <div className={styles.liImageDesc}>blog.madeofwoods.com · 5 min read</div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.liFooter}>
+          <div className={styles.liButton}>Post</div>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
 export const components = {
   h1: H1,
   p: Para,
@@ -90,4 +122,5 @@ export const components = {
   Img: Img,
   a: Anchor,
   Note: Note,
+  LinkedIn: LinkedIn,
 };
