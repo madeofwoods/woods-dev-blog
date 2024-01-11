@@ -256,6 +256,7 @@
   background-color: var(--mdxLinkedIn);
   gap: 5px;
   border-radius: 8px;
+  border: 1px solid rgba(153, 153, 153, 0.282);
 }
 
 .linkedInContainer:hover {
