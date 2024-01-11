@@ -123,6 +123,10 @@
   border-radius: 15px;
   margin-bottom: 40px;
   margin-top: 30px;
+  width: 700px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .blur {
@@ -134,6 +138,8 @@
   -moz-transition: 1s -moz-filter linear;
   -ms-transition: 1s -ms-filter linear;
   -o-transition: 1s -o-filter linear;
+  width: 100%;
+  height: 100%;
 }
 .imageContainer:hover .blur {
   filter: blur(20px);
@@ -144,6 +150,8 @@
   border-radius: 15px;
   /* border: 1px solid rgba(131, 131, 131, 0.5); */
   z-index: 1;
+  /* max-width: 700px;
+  max-height: 500px; */
 }
 
 .link {
@@ -239,6 +247,12 @@
   color: var(--mdxNoteText);
 }
 
+.linkedInContainer {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}
+
 @media screen and (max-width: 768px) {
   .blogWrapper {
     max-width: 700px;
@@ -246,6 +260,10 @@
   }
   .noteContainer {
     width: 100%;
+  }
+  .imageContainer {
+    width: 80vw;
+    height: calc((80vw * (4 / 7)));
   }
 }
 

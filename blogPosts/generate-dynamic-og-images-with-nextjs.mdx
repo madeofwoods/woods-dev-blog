@@ -12,8 +12,6 @@ Open Graph is an internet protocol that provides rules for the sharing of metada
 
 Open Graph images are important element in improving website SEO.
 
-> > > _insert image_
-
 # Static Open Graph images in Next 13
 
 The introduction of the App directory with Next.js 13 allowed for a static Open Graph image to be added directly into the <Tag>app</Tag> folder, as well as any other static page folder.
@@ -37,8 +35,6 @@ This is an incredibly efficient and simple way of immediately improving the visi
 If you want an Open Graph image which is responsive dynamically generated page content, you will require a dynamic Open Graph image. This would be the case if you have dynamic product pages on an eCommerce site, or in this case a blog site with dynamically generated blog posts.
 
 This allows for the Open Graph image to be specific to the content of the product page or blog post itself.
-
-_insert image_
 
 # Getting started with dynamic OG images with Next.js 13.3+
 
@@ -145,7 +141,7 @@ You can find the link to your dynamic OG image in <Tag>meta</Tag> tags of HTML s
 
 Opening that URL in a new tab shows me what my OG image looks like so far:
 
-<Img alt="alt" src="/blogs/generateOG/og3.png" />
+<Img alt="static elements added to image" src="/blogs/generateOG/og3.png" />
 
 It is worth noting that Vercel have also created a very useful **OG Image Playground** where you can test out ideas and look at examples.
 The playground can be found [here](https://og-playground.vercel.app/).
@@ -194,12 +190,20 @@ Effectively, the <Tag>frontmatter</Tag> is the object:
 }
 ```
 
-From this I can now dynamically add any text to the image. I could also add unique colour codes, image URLs and more.
+From this I can now dynamically add any text to the image. I could also more unique information to the frontmatter to build each the image.
 For now, I have stuck with the blog title.
 
-```jsx:jsx showlinenumbers
+<Tag>ImageResponse</Tag> takes a <Tag>ReactElement</Tag> as its first argument, and an optional second argument where you
+can define the size of your image, along with fonts and emojis etc.. Here I have spread the <Tag>size</Tag> object defined
+in <Tag>line 3</Tag>, to define the width and height of the OG image.
+
+```jsx:jsx {7-8, 45-57, 60-62} showlinenumbers
+import { ImageResponse } from "next/server";
+
+export const size = { width: 1200, height: 680 };
+export const contentType = "image/png";
+
 export default async function og({ params }) {
-  try {
     const slug = params.slug;
     const blog = await getBlog(slug);
 
@@ -257,8 +261,12 @@ export default async function og({ params }) {
         ...size,
       }
     );
-  } catch (e) {
-    console.log(e);
   }
 }
 ```
+
+Here is the final result:
+
+<Img alt="dynamic elements added to image" src="/blogs/generateOG/og4.png" />
+
+Should you feel compelled to share this blog on your socials, this image will now appear with the link.

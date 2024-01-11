@@ -7,10 +7,7 @@ const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 export const H1 = ({ children }) => {
   return (
-    <h1
-      className={styles.h1}
-      id={typeof children == "string" && String(children).toLowerCase().split(" ").join("-")}
-    >
+    <h1 className={styles.h1} id={typeof children == "string" && String(children).toLowerCase().split(" ").join("-")}>
       {children}
     </h1>
   );
@@ -48,11 +45,11 @@ const ListItem = ({ children }) => {
   return <div className={styles.listItem}>{children}</div>;
 };
 
-const Img = ({ alt, src, w, h }) => {
+const Img = ({ alt, src }) => {
   return (
     <div className={styles.imageContainer}>
-      <div className={styles.blur} style={{ width: w || 700, height: h || 400 }}></div>
-      <Image className={styles.img} src={src} alt={alt || " "} width={w || 700} height={h || 400} />
+      <div className={styles.blur}></div>
+      <Image className={styles.img} src={src} alt={alt || " "} fill />
     </div>
   );
 };
