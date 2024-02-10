@@ -23,16 +23,3 @@ export const Item = ({ children }) => {
     </li>
   );
 };
-
-// export const LinkedIn = ({ link = "http://localhost:3000/posts/generate-dynamic-og-images-with-nextjs" }) => {
-//   return (
-//     <Link href={link} target="_blank">
-//       <div className={styles.linkedInContainer}>
-//         <div className="titles">
-//           <Image className={styles.linedInAvatar} src={"/img/dog.jpg"} alt="" width={50} height={50} />
-//           <div>hello</div>
-//         </div>
-//       </div>
-//     </Link>
-//   );
-// };

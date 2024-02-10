@@ -1,0 +1,177 @@
+---
+title: "Project Notes #1 - Typing Speed App with Dynamic SVGs"
+dateString: "2024-02-10"
+topic: "react"
+isPublished: true
+desc: "An unpublished blog with some useful usecases."
+---
+
+# The Starting Point
+
+I was testing my internet speed the other day, as one does, on [SPEEDTEST](https://www.speedtest.net/), and I was immediately taken by the speedometer they have built to show the download and upload speeds. Ever since I started frontend development, I have been most fascinated by interesting data visualisation.
+
+<Img alt="speedtest" src="/blogs/projectNotesOne/speedtest.png" />
+
+I decided to rebuild this speedometer using **SVGs** (Scalable Vector Graphics), and to build a type speed testing app to supply the data. The speedometer shows the type speed in **WPM** (Words Per Minute), and I wanted the interface to have the feel of a car dashboard. In the end, this was the initial result:
+
+<Img alt="dashboard" src="/blogs/projectNotesOne/dashboard.png" />
+
+If you are interested in testing the app for yourself, you can check it out [here](https://typetestapp.vercel.app). In this blog I will discuss how I went approached various elements of this project, in particular how I made the speedometer with SVGs and approached the logic for the type testing element.
+
+# Generating The Typing Speed
+
+I started by creating a **custom hook** for generating my <Tag>startTimer()</Tag> and <Tag>resetTimer()</Tag> functions, as well as updating the <Tag>timeRemaining</Tag> in seconds.
+
+It is worth noting, that I am using the <Tag>setInterval()</Tag> function to update my clock, but all time-based calculations for **WPM** are done using the built-in <Tag>Date</Tag> object, referencing the **timestamp** at the point the first letter is typed. This is because <Tag>setInterval()</Tag> can become unreliable and inaccurate over time due to temporal drift. However, for this demonstration I deemed it sufficient for triggering calculations and updating the <Tag>timeRemaining</Tag> displayed on the clock.
+
+Originally, I was calling the interval every second. However, the **current speed** display (the pink bars) introduced **state variables** that need to be updated every 0.2s, so I created a simple <Tag>counter</Tag> that increments every 0.2s, and updated the timeRemaining using this counter.
+
+This is the useTimer hook I created.
+
+```TSX:TSX showlinenumbers
+import { useCallback, useEffect, useRef, useState } from "react";
+
+const useTimer = (seconds: number) => {
+  const [timeRemaining, setTimeRemaining] = useState(seconds);
+  const [counter, setCounter] = useState(0);
+  const milisecondsRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startTimer = useCallback(() => {
+    milisecondsRef.current = setInterval(() => {
+      setCounter((prev) => prev + 1);
+    }, 200);
+  }, [setCounter]);
+
+  const resetTimer = useCallback(() => {
+    milisecondsRef.current && clearInterval(milisecondsRef.current);
+
+    setTimeRemaining(seconds);
+    setCounter(0);
+  }, [seconds]);
+
+  useEffect(() => {
+    if (counter % 5 == 0 && counter > 0) {
+      setTimeRemaining((timeLeft) => timeLeft - 1);
+    }
+  }, [counter]);
+
+  useEffect(() => {
+    if (!timeRemaining && milisecondsRef.current) {
+      //milisecs added
+      clearInterval(milisecondsRef.current);
+    }
+  }, [timeRemaining, milisecondsRef]);
+
+  return { timeRemaining, startTimer, resetTimer, counter, setTimeRemaining };
+};
+
+export default useTimer;
+
+```
+
+<Note>
+  If you are having trouble with the accuracy on **setInterval()**, there are various techniques available to improve
+  it. Use the **Date** object with **setTimeout** to compare the elapsed time with the interval, and adjust the next
+  interval accordingly. Or, use **requestAnimationFrame**.
+</Note>
+
+For generating words, I used [fakerJS]("https://google.com"), an amazing javascript library for generating fake data.
+
+```ts:ts
+import { faker } from "@faker-js/faker";
+
+export const generateWords = (count: number): string => {
+  let output = "";
+  for (let i = 0; i < count; i++) {
+    output += faker.word.noun() + " ";
+  }
+  return output;
+};
+
+```
+
+I then created a <Tag>typedChars</Tag> state variable, and added an keydown eventListener to update this string whenever a key is typed. I could then compare <Tag>typedChars</Tag> with the result of my <Tag>generatedWords</Tag> function.
+
+```ts:ts
+export const calculateErrors = (actual: string, typed: string): number => {
+  return typed.split("").reduce((acc, curr, index) => {
+    curr !== actual[index] && acc++;
+    return acc;
+  }, 0);
+};
+```
+
+I had found [this article]("https://www.speedtypingonline.com/typing-equations"), and referenced it to calculate the **Net WPM**, which felt like a fair calculation. Net WPM presumes that a **word** is equivalent to **5 characters**, and also adjusts for the number of errors typed.
+
+```ts:ts
+export const getNetWPM = (numChar: number, time: number, numErrors: number): number => {
+  const wpm = Number((((numChar / 5 - numErrors) * 60) / time).toFixed(2));
+
+  return wpm > 0 ? wpm : 0;
+};
+```
+
+So, armed with the number of the **total number of characters typed**, the **time elapsed** and the **total number of errors**, I was able to generate the Net WPM, and update it whenever a key is pressed, or when the timeRemaining is updated.
+
+```tsx:tsx
+  // A snippet from my LiveResults component where I update the elapsedTime, the errors and the WMP
+
+const LiveResults = ({ timeRemaining, counter }: { timeRemaining: number; counter: number }) => {
+  const [elapsedTime, setElapsedTime] = useState<number>(0);
+  const [errors, setErrors] = useState<number>(0);
+  const [liveWPM, setLiveWPM] = useState<number>(0);
+
+  useEffect(() => {
+    const currentTime = new Date();
+    setElapsedTime((currentTime.getTime() - startTime.getTime()) / 1000);
+
+    setErrors(calculateErrors(allWords, typedChars));
+  }, [typedChars, startTime, timeRemaining, allWords]);
+
+  useEffect(() => {
+    setLiveWPM(getNetWPM(typedChars.length, elapsedTime, errors));
+  }, [elapsedTime, typedChars, errors]);
+
+  ...
+}
+```
+
+This information was then passed to my **SVG** component, where I was able to use it to create the speedometer.
+
+# Creating the Speedometer with SVGs
+
+When i set out to make this blog i decided to use mdx - a decision I am coming to regret more and more.
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia excepturi aut voluptate maiores odit! Atque libero temporibus reiciendis, dolore laborum architecto nesciunt aliquid itaque voluptas ea sed illo tempora doloribus? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia excepturi aut voluptate maiores odit! Atque libero temporibus reiciendis, dolore laborum architecto nesciunt aliquid itaque voluptas ea sed illo tempora doloribus? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia excepturi aut voluptate maiores odit! Atque libero temporibus reiciendis, dolore laborum architecto nesciunt aliquid itaque voluptas ea sed illo tempora doloribus?
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia excepturi aut voluptate maiores odit! Atque libero temporibus reiciendis, dolore laborum architecto nesciunt aliquid itaque voluptas ea sed illo tempora doloribus?
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia ex
+
+```diff:JSX showlinenumbers
+const codeblock = "";
+
+codeblock += "hello world";
+
+- console.log(codeblock);
++ console.log("added")
+```
+
+- opening orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet consectetur adipis
+- two
+- three
+
+<List>
+  <ListItem>
+    opening orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet consectetur adipis orem, ipsum
+    dolor sit amet consectetur adipisopening orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet
+    consectetur adipis orem, ipsum dolor sit amet consectetur adipisopening orem, ipsum dolor sit amet consectetur
+    adipis orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet consectetur adipis
+  </ListItem>
+  <ListItem>item two</ListItem>
+  <ListItem>item three</ListItem>
+</List>
+
+# An Image
+
+<Img alt="alt" src="/img/moon.jpg" />
+
+[Link text Here](https://google.com) potentially works
+tation felt natural to me. So, that is the option I chose.
