@@ -10,6 +10,8 @@ const trees = { w: 20, h: 30 };
 const LogoTrees = () => {
   const [isTree, setIsTree] = useState(treeState);
 
+  //refactor this immediately please
+
   return (
     <div className={styles.container}>
       <div className={styles.treeContainer} onMouseOver={() => setIsTree({ ...isTree, 0: false })}>
