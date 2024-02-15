@@ -18,7 +18,9 @@ I decided to rebuild this speedometer using **SVGs** (Scalable Vector Graphics),
 
 If you are interested in testing the app for yourself, you can check it out [here](https://typetestapp.vercel.app). In this blog I will discuss how I went approached various elements of this project, in particular how I made the speedometer with SVGs and approached the logic for the type testing element.
 
-# Generating The Typing Speed
+This blog does not cover every single line of code. However, you can check out the [repository](https://github.com/madeofwoods/typingtestapp) if you are intersted in going deeper.
+
+# Setting Up The Timing Functionality
 
 I started by creating a **custom hook** for generating my <Tag>startTimer()</Tag> and <Tag>resetTimer()</Tag> functions, as well as updating the <Tag>timeRemaining</Tag> in seconds.
 
@@ -75,7 +77,9 @@ export default useTimer;
   interval accordingly. Or, use **requestAnimationFrame**.
 </Note>
 
-For generating words, I used [fakerJS]("https://google.com"), an amazing javascript library for generating fake data.
+# Generating and Comparing Typed Characters
+
+For generating the words to be typed, I used [fakerJS](https://fakerjs.dev/), an amazing javascript library for generating fake data.
 
 ```ts:ts
 import { faker } from "@faker-js/faker";
@@ -91,6 +95,7 @@ export const generateWords = (count: number): string => {
 ```
 
 I then created a <Tag>typedChars</Tag> state variable, and added an keydown eventListener to update this string whenever a key is typed. I could then compare <Tag>typedChars</Tag> with the result of my <Tag>generatedWords</Tag> function.
+I created the <Tag>calculateErrors()</Tag> function to calculate the total number of incorrect typed characters.
 
 ```ts:ts
 export const calculateErrors = (actual: string, typed: string): number => {
@@ -101,7 +106,7 @@ export const calculateErrors = (actual: string, typed: string): number => {
 };
 ```
 
-I had found [this article]("https://www.speedtypingonline.com/typing-equations"), and referenced it to calculate the **Net WPM**, which felt like a fair calculation. Net WPM presumes that a **word** is equivalent to **5 characters**, and also adjusts for the number of errors typed.
+I had found [this article](https://www.speedtypingonline.com/typing-equations), and referenced it to calculate the **Net WPM**, which felt like a fair calculation. Net WPM presumes that a **word** is equivalent to **5 characters**, and also adjusts for the number of errors typed.
 
 ```ts:ts
 export const getNetWPM = (numChar: number, time: number, numErrors: number): number => {
@@ -140,38 +145,9 @@ This information was then passed to my **SVG** component, where I was able to us
 
 # Creating the Speedometer with SVGs
 
-When i set out to make this blog i decided to use mdx - a decision I am coming to regret more and more.
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia excepturi aut voluptate maiores odit! Atque libero temporibus reiciendis, dolore laborum architecto nesciunt aliquid itaque voluptas ea sed illo tempora doloribus? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia excepturi aut voluptate maiores odit! Atque libero temporibus reiciendis, dolore laborum architecto nesciunt aliquid itaque voluptas ea sed illo tempora doloribus? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia excepturi aut voluptate maiores odit! Atque libero temporibus reiciendis, dolore laborum architecto nesciunt aliquid itaque voluptas ea sed illo tempora doloribus?
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia excepturi aut voluptate maiores odit! Atque libero temporibus reiciendis, dolore laborum architecto nesciunt aliquid itaque voluptas ea sed illo tempora doloribus?
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia ex
+SVGs (Scalable Vector Graphics) are a really useful alternative image format which, as the name suggests, are written as vector and are scalable, redering pixel-perfect at any resolution.
+Due to the way SVGs are created, there is access to a lot of data which can be manipulated dynamically to bring the SVG to life.
 
-```diff:JSX showlinenumbers
-const codeblock = "";
+In order to create the speedometer, we will be taking advantage of an SVG's <Tag>stroke-dasharray</Tag> and <Tag>stroke-dashoffset</Tag> attributes.
 
-codeblock += "hello world";
-
-- console.log(codeblock);
-+ console.log("added")
-```
-
-- opening orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet consectetur adipis
-- two
-- three
-
-<List>
-  <ListItem>
-    opening orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet consectetur adipis orem, ipsum
-    dolor sit amet consectetur adipisopening orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet
-    consectetur adipis orem, ipsum dolor sit amet consectetur adipisopening orem, ipsum dolor sit amet consectetur
-    adipis orem, ipsum dolor sit amet consectetur adipis orem, ipsum dolor sit amet consectetur adipis
-  </ListItem>
-  <ListItem>item two</ListItem>
-  <ListItem>item three</ListItem>
-</List>
-
-# An Image
-
-<Img alt="alt" src="/img/moon.jpg" />
-
-[Link text Here](https://google.com) potentially works
-tation felt natural to me. So, that is the option I chose.
+When working with SVGs in React, you can either save them as <Tag>.svg</Tag> files or use them directly in <Tag>JSX</Tag> or <Tag>TSX</Tag> files.
