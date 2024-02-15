@@ -13,6 +13,7 @@ const mdxOptions = {
   },
 };
 
+//create params array - used to statically generate dynamic routes at build time
 export const generateStaticParams = async () => {
   const posts = getAllBlogs();
   const params = posts.map((post) => ({ slug: post.slug }));
@@ -20,7 +21,6 @@ export const generateStaticParams = async () => {
 };
 
 export async function generateMetadata({ params }) {
-  console.log(params);
   const data = await getBlog(params.slug);
   return {
     title: data.frontMatter.title,
@@ -40,9 +40,9 @@ export async function generateMetadata({ params }) {
 
 const BlogPage = async ({ params }) => {
   const data = await getBlog(params.slug);
-  console.log(params.slug);
   const { headings, ids } = getHeadings(data.content);
-  console.log(headings);
+
+  console.log({ headings, ids });
 
   return (
     <div className={styles.container}>

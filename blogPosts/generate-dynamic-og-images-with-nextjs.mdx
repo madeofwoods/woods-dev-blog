@@ -14,7 +14,7 @@ Open Graph (OG) images are an important element in improving website SEO.
 
 <LinkedIn
   link="https://blog.madeofwoods.com"
-  avatar="/img/dog0.jpg"
+  avatar="/blogs/generateOG/dog0.jpg"
   content="This blog makes my tail wag."
   image={"/blogs/generateOG/og3.png"}
   name="Mark Roofalo"
@@ -46,7 +46,7 @@ This allows for the OG image to be specific to the content of the product page o
 
 <LinkedIn
   link="https://blog.madeofwoods.com/posts/building-a-blog-with-nextjs-and-mdx"
-  avatar="/img/dog3.jpg"
+  avatar="/blogs/generateOG/dog3.jpg"
   content="Wow, the title appears in the image. Woof."
   image={"/blogs/generateOG/og8.png"}
   name="Gnarls Barkley"
@@ -57,16 +57,16 @@ This allows for the OG image to be specific to the content of the product page o
 This was something of a journey of discovery for me. Due to the rapid development and updating of Next.js, there are various solutions to this problem that are suggested around the internet, as well as in various parts of the Next.js and Vercel documentation.
 
 <List>
-  <Item>
+  <ListItem>
     Creating an <Tag>api</Tag> folder in the pages directory - [docs](https://vercel.com/docs/functions/edge-functions/og-image-generation/og-image-examples#using-an-external-dynamic-image)
-  </Item>
-  <Item>
+  </ListItem>
+  <ListItem>
     Creating the JSX file &nbsp;<Tag>app/og/route.jsx</Tag> - [docs](https://vercel.com/docs/functions/edge-functions/og-image-generation/og-image-examples#using-an-external-dynamic-image)
-  </Item>
+  </ListItem>
 
-  <Item>
+  <ListItem>
     Creating the JSX file &nbsp;<Tag>app/pageName/opengraph-image.jsx</Tag> - [docs](https://nextjs.org/blog/next-13-3#dynamic-open-graph-image-generation)
-  </Item>
+  </ListItem>
 </List>
 
 The <Tag>api</Tag> documentation is written for the pages directory. So, although I did find an example of a dedicated <Tag>api</Tag> being used within the page folder of the app directory, I decided to pass on that one.

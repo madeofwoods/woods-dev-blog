@@ -8,6 +8,8 @@ import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// metadataBase can be combined with canonical on other pages
+//template will replace %s with provided string on other pages
 export const metadata = {
   metadataBase: new URL("https://blog.madeofwoods.com/"),
   title: { default: "MADEOFWOODS", template: `%s | M A D E O F W O O D S` },

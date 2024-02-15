@@ -72,15 +72,15 @@ Writing component-based code is at the heart of what I enjoy about React, so MDX
 There were three packages for incorporating MDX into a Next.js project that I considered:
 
 <List>
-  <Item>
+  <ListItem>
     Vercel's official package:&nbsp;<Tag>@next/mdx</Tag>
-  </Item>
-  <Item>
+  </ListItem>
+  <ListItem>
     Hashicorp's:&nbsp;<Tag>next-mdx-remote</Tag>
-  </Item>
-  <Item>
+  </ListItem>
+  <ListItem>
     Kent C Dodds's:&nbsp;<Tag>next-mdx-bundler</Tag>
-  </Item>
+  </ListItem>
 </List>
 
 To begin with, it seemed that <Tag>@next/mdx</Tag> offered everything that I needed.
@@ -177,8 +177,8 @@ const Blog = ({ blog }) => {
 ```
 
 <Note>
-  If you are using an earlier version of Next.js, you have to serialize the content. Serialization is not
-  necessary with RSC. For more info, check out the next-mdx-remote
+  If you are using an earlier version of Next.js, you have to serialize the content. Serialization is not necessary with
+  RSC. For more info, check out the next-mdx-remote
   [documentation](https://github.com/hashicorp/next-mdx-remote#react-server-components-rsc--nextjs-app-directory-support).
 </Note>
 

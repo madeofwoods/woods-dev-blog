@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
+//apply ids to H1 to be found by intersection observer
 export const H1 = ({ children }) => {
   return (
     <h1 className={styles.h1} id={typeof children == "string" && String(children).toLowerCase().split(" ").join("-")}>
@@ -30,18 +31,11 @@ const UL = ({ children }) => {
   return <ul className={styles.ul}>{children}</ul>;
 };
 
-const OL = ({ children }) => {
-  return <ol className={styles.ordered}>{children}</ol>;
-};
-
-const OrderedItem = ({ children }) => {
-  return <li className={styles.oLi}>{children}</li>;
-};
-
+//Ordered List
 const List = ({ children }) => {
   return <div className={styles.list}>{children}</div>;
 };
-
+//Ordered List Item
 const ListItem = ({ children }) => {
   return <div className={styles.listItem}>{children}</div>;
 };
@@ -109,6 +103,7 @@ const LinkedIn = ({ link, avatar, content, image, name }) => {
   );
 };
 
+// li calls the <Item /> component in this way because it is a client component
 export const components = {
   h1: H1,
   p: Para,
@@ -117,7 +112,6 @@ export const components = {
   ul: UL,
   li: (props) => <Item {...props} />,
   List: List,
-  Item: ListItem,
   ListItem: ListItem,
   Img: Img,
   a: Anchor,
