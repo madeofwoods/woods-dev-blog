@@ -38,21 +38,29 @@ export const getBlog = async (slug) => {
   };
 };
 
-//return the headings and the ids for the TOC -- this should be refactored along with TableOfContents.jsx to use ids from the headingsWithId object
+// From interview with Max, for future ref
+
+// const getHeadingsGeneric = (data, number = 1) => {
+//   const headings = data
+//     .split("\n")
+//     .filter((line) => line.startsWith(`${"#".repeat(number)} `))
+//     .map((line) => line.slice(1 + number));
+// };
+
+//return the headings, ids and h for the TOC
 export const getHeadings = (data) => {
-  const headings = data
-    .split("\n")
-    .filter((line) => line[0] === "#")
-    .map((line) => line.slice(2));
+  const headings = data.split("\n").filter((line) => line.startsWith("#"));
 
-  const headingsWithId = headings.map((heading) => ({
-    heading: heading,
-    id: heading.toLowerCase().split(" ").join("-"),
-  }));
+  const headingsWithId = headings.map((heading) => {
+    const trimmedHeading = heading.replace(/#/g, "").trim();
+    return {
+      heading: trimmedHeading,
+      id: trimmedHeading.toLowerCase().split(" ").join("-"),
+      htagLevel: heading.split(" ")[0].length,
+    };
+  });
 
-  const ids = headings.map((heading) => heading.toLowerCase().split(" ").join("-"));
-
-  return { headings: headingsWithId, ids };
+  return { headings: headingsWithId };
 };
 
 //note -- sort mutates original array. so the return is most likely redundant. Can be refactored.

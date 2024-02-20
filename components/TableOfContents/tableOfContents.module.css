@@ -89,6 +89,12 @@
   padding: 5px 10px;
   border-radius: 8px;
 }
+.heading2 {
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-left: 20px;
+  border-radius: 8px;
+}
 
 .heading:hover {
   background-color: var(--tocHover);

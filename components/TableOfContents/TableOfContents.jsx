@@ -10,7 +10,7 @@ const handleClick = (e, id) => {
   document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-const TableOfContents = ({ headings, ids }) => {
+const TableOfContents = ({ headings }) => {
   const { theme } = useContext(ThemeContext);
   const [active, setActive] = useState("");
   const [scroll, setScroll] = useState(0);
@@ -37,16 +37,19 @@ const TableOfContents = ({ headings, ids }) => {
       },
       { rootMargin: `0% 0% -50% 0%`, threshold: 0.5 }
     );
-    ids.forEach((id) => observer.observe(document.getElementById(id)));
+    headings
+      .filter((heading) => heading.htagLevel === 1)
+      .forEach((heading) => observer.observe(document.getElementById(heading.id)));
 
     return () => {
+      //fix unobserve
       // ids.forEach((id) => {
       //   observer.unobserve(document.getElementById(id));
       // });
 
       observer.disconnect();
     };
-  }, [ids]);
+  }, [headings]);
 
   return (
     <div className={styles.container}>
@@ -59,12 +62,14 @@ const TableOfContents = ({ headings, ids }) => {
         {headings.map((heading) => (
           <a
             href={`#${heading.id}`}
-            className={`${styles.heading} ${active == heading.id && styles.active}`}
+            className={`${styles.heading} ${heading.htagLevel === 2 && styles.heading2} ${
+              active == heading.id && styles.active
+            }`}
             key={heading.id}
             scroll={true}
             onClick={(e) => handleClick(e, heading.id)}
           >
-            {heading.heading}
+            {heading.htagLevel === 1 ? heading.heading : heading.heading}
           </a>
         ))}
       </div>

@@ -3,17 +3,11 @@ import styles from "./customMDX.module.css";
 import { Source_Code_Pro } from "next/font/google";
 import { Item } from "./ClientCustomComponents";
 import Link from "next/link";
+import { H1, H2, H3 } from "./HeadersCustomComponents";
 
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 
 //apply ids to H1 to be found by intersection observer
-export const H1 = ({ children }) => {
-  return (
-    <h1 className={styles.h1} id={typeof children == "string" && String(children).toLowerCase().split(" ").join("-")}>
-      {children}
-    </h1>
-  );
-};
 
 export const Para = ({ children }) => {
   return <p className={styles.para}>{children}</p>;
@@ -106,6 +100,8 @@ const LinkedIn = ({ link, avatar, content, image, name }) => {
 // li calls the <Item /> component in this way because it is a client component
 export const components = {
   h1: H1,
+  h2: H2,
+  h3: H3,
   p: Para,
   strong: Strong,
   Tag: Tag,
